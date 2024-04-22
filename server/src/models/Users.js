@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+// NPCs stands for Non-Player character
+
 const UsersSchema = new mongoose.Schema(
   {
     email: { type: String, require: true },
