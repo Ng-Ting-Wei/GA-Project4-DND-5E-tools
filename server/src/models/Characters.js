@@ -19,6 +19,7 @@ const CharacterSchema = new mongoose.Schema(
     temporaryhitpoints: { type: Number, default: 0 },
     armorclass: { type: Number, default: 10 },
     created_at: { type: Date, default: Date.now },
+    player: { type: mongoose.Schema.ObjectId, ref: "Users" },
   },
   { collection: "characters" }
 );
