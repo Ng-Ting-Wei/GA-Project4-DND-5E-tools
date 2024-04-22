@@ -20,7 +20,7 @@ const CharacterSchema = new mongoose.Schema(
     armorclass: { type: Number, default: 10 },
     created_at: { type: Date, default: Date.now },
   },
-  { collection: "character" }
+  { collection: "characters" }
 );
 
-module.exports = mongoose.model("Character", CharacterSchema);
+module.exports = mongoose.model("Characters", CharacterSchema);
