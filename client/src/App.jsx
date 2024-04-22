@@ -3,7 +3,7 @@ import React from "react";
 function App() {
   return (
     <div>
-      <h2>GA SEI</h2>
+      <h1>GA SEI</h1>
     </div>
   );
 }
