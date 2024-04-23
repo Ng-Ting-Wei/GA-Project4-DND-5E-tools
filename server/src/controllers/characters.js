@@ -81,6 +81,13 @@ const updateCharacter = async (req, res) => {
     if ("armorclass" in req.body)
       updateCharacter.armorclass = req.body.armorclass;
     if ("inventory" in req.body) updateCharacter.inventory = req.body.inventory;
+
+    const character = await CharactersModal.findByIdAndUpdate(
+      req.body._id,
+      updateCharacter
+    );
+
+    res.json({ status: "ok", msg: "Character updated" });
   } catch (error) {
     console.error(error.message);
     res
