@@ -9,6 +9,8 @@ const CharacterSchema = new mongoose.Schema(
     level: { type: Number, default: 1 },
     proficiencybonus: { type: Number, default: 2 },
     background: { type: String, require: true },
+    savingthrows: { type: [String] },
+    skill: { type: [String] },
     strength: { type: Number, require: true },
     dexterity: { type: Number, require: true },
     constitution: { type: Number, require: true },

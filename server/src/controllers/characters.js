@@ -25,6 +25,8 @@ const addCharacter = async (req, res) => {
       class: req.body.class,
       level: req.body.level,
       background: req.body.background,
+      savingthrows: req.body.savingthrows,
+      skill: req.body.skill,
       strength: req.body.strength,
       dexterity: req.body.dexterity,
       constitution: req.body.constitution,
@@ -67,6 +69,9 @@ const updateCharacter = async (req, res) => {
     if ("level" in req.body) updateCharacter.level = req.body.level;
     if ("background" in req.body)
       updateCharacter.background = req.body.background;
+    if ("savingthrows" in req.body)
+      updateCharacter.savingthrows = req.body.savingthrows;
+    if ("skill" in req.body) updateCharacter.skill = req.body.skill;
     if ("strength" in req.body) updateCharacter.strength = req.body.strength;
     if ("dexterity" in req.body) updateCharacter.dexterity = req.body.dexterity;
     if ("constitution" in req.body)
@@ -97,8 +102,28 @@ const updateCharacter = async (req, res) => {
   }
 };
 
+const deleteCharacter = async (req, res) => {
+  try {
+    const character = await CharactersModal.findByIdAndDelete(
+      req.body.character
+    );
+    const user = await UsersModel.findByIdAndUpdate(
+      req.body._id,
+      { $pull: { characters: req.body.character } },
+      { new: true }
+    );
+    res.json({ status: "ok", msg: "character deleted", date: character });
+  } catch (error) {
+    console.error(error.message);
+    res
+      .status(400)
+      .json({ status: "error", msg: "Error in deleting character" });
+  }
+};
+
 module.exports = {
   getAllCharacters,
   addCharacter,
   updateCharacter,
+  deleteCharacter,
 };
