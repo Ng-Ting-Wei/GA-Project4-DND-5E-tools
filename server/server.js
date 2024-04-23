@@ -8,6 +8,7 @@ const rateLimit = require("express-rate-limit");
 
 const users = require("./src/routers/users");
 const roles = require("./src/routers/roles");
+const character = require("./src/routers/characters");
 
 connectDB();
 
@@ -29,6 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api", users);
 app.use("/api", roles);
+app.use("/api", character);
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
