@@ -18,6 +18,7 @@ const CharacterSchema = new mongoose.Schema(
     hitpoints: { type: Number, require: true },
     temporaryhitpoints: { type: Number, default: 0 },
     armorclass: { type: Number, default: 10 },
+    inventory: { type: [String] },
     created_at: { type: Date, default: Date.now },
     player: { type: mongoose.Schema.ObjectId, ref: "Users" },
   },
