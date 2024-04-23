@@ -31,7 +31,7 @@ const addCharacter = async (req, res) => {
       intelligence: req.body.intelligence,
       wisdom: req.body.wisdom,
       charisma: req.body.charisma,
-      hitpoints: req.bod.hitpoints,
+      hitpoints: req.body.hitpoints,
       temporaryhitpoints: req.body.temporaryhitpoints,
       armorclass: req.body.armorclass,
       inventory: req.body.inventory,
