@@ -43,6 +43,10 @@ const addCharacter = async (req, res) => {
 
     user.characters.push(character._id);
 
+    user = await UsersModel.findByIdAndUpdate(req.body.player, user, {
+      new: true,
+    });
+
     res.json({
       status: "ok",
       msg: "character saved",
