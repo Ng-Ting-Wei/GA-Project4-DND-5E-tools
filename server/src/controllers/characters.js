@@ -56,4 +56,5 @@ const addCharacter = async (req, res) => {
 
 module.exports = {
   getAllCharacters,
+  addCharacter,
 };
