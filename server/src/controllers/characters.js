@@ -7,7 +7,7 @@ const getAllCharacters = async (req, res) => {
     if (characters.length) {
       res.json({ status: "ok", msg: "characters found", data: characters });
     } else {
-      res.json({ status: "error", msg: "no characters found" });
+      res.json({ status: "ok", msg: "no characters found" });
     }
   } catch (error) {
     console.error(error.message);
@@ -20,14 +20,32 @@ const getAllCharacters = async (req, res) => {
 const getCharacterById = async (req, res) => {
   try {
     const character = await CharactersModal.findById(req.body._id);
-    if (character.length)
+    if (character) {
       res.json({ status: "ok", msg: "character found", data: character });
-    else res.json({ status: "error", msg: "Character id does not exist" });
+    } else {
+      res.json({ status: "ok", msg: "Character id does not exist" });
+    }
   } catch (error) {
     console.error(error.message);
     res
       .status(400)
       .json({ status: "error", msg: "Error in getting character id" });
+  }
+};
+
+const getCharacterByPlayer = async (req, res) => {
+  try {
+    const character = await CharactersModal.find({ player: req.body.player });
+    if (character) {
+      res.json({ status: "ok", msg: "character found", data: character });
+    } else {
+      res.json({ status: "ok", msg: "User has no characters" });
+    }
+  } catch (error) {
+    console.error(error.message);
+    res
+      .status(400)
+      .json({ status: "error", msg: "Error in getting player character" });
   }
 };
 
@@ -138,6 +156,7 @@ const deleteCharacter = async (req, res) => {
 module.exports = {
   getAllCharacters,
   getCharacterById,
+  getCharacterByPlayer,
   addCharacter,
   updateCharacter,
   deleteCharacter,
