@@ -87,7 +87,7 @@ const updateCharacter = async (req, res) => {
       updateCharacter
     );
 
-    res.json({ status: "ok", msg: "Character updated" });
+    res.json({ status: "ok", msg: "Character updated", data: character });
   } catch (error) {
     console.error(error.message);
     res
