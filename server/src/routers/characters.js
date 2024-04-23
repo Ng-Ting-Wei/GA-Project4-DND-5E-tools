@@ -8,6 +8,6 @@ const router = express.Router();
 
 router.get("/characters/allcharacters", getAllCharacters);
 router.put("/characters/addcharacters", addCharacter);
-router.put("/characters/updatecharacters", updateCharacter);
+router.patch("/characters/updatecharacters", updateCharacter);
 
 module.exports = router;
