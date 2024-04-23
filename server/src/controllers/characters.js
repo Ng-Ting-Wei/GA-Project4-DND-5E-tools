@@ -7,7 +7,7 @@ const getAllCharacters = async (req, res) => {
     if (characters.length) {
       res.json({ status: "ok", msg: "characters found", data: characters });
     } else {
-      res.json({ status: "error", msg: "Error in getting all characters" });
+      res.json({ status: "error", msg: "no characters found" });
     }
   } catch (error) {
     console.error(error.message);
