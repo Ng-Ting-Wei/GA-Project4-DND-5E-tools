@@ -16,7 +16,7 @@ const auth = (req, res, next) => {
       req.decoded = decoded;
       next();
     } catch (error) {
-      return res.status(401).json({ status: "error", msg: "not authorised" });
+      return res.status(401).json({ status: "error", msg: "unauthorized" });
     }
   } else {
     return res.status(403).send({
@@ -26,4 +26,4 @@ const auth = (req, res, next) => {
   }
 };
 
-module.exports = auth;
+module.exports = { auth };
