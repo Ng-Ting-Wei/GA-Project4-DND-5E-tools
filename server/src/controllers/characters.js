@@ -58,6 +58,37 @@ const addCharacter = async (req, res) => {
   }
 };
 
+const updateCharacter = async (req, res) => {
+  try {
+    const updateCharacter = {};
+    if ("name" in req.body) updateCharacter.name = req.body.name;
+    if ("race" in req.body) updateCharacter.race = req.body.race;
+    if ("class" in req.body) updateCharacter.class = req.body.class;
+    if ("level" in req.body) updateCharacter.level = req.body.level;
+    if ("background" in req.body)
+      updateCharacter.background = req.body.background;
+    if ("strength" in req.body) updateCharacter.strength = req.body.strength;
+    if ("dexterity" in req.body) updateCharacter.dexterity = req.body.dexterity;
+    if ("constitution" in req.body)
+      updateCharacter.constitution = req.body.constitution;
+    if ("intelligence" in req.body)
+      updateCharacter.intelligence = req.body.intelligence;
+    if ("wisdom" in req.body) updateCharacter.wisdom = req.body.wisdom;
+    if ("charisma" in req.body) updateCharacter.charisma = req.body.charisma;
+    if ("hitpoints" in req.body) updateCharacter.hitpoints = req.body.hitpoints;
+    if ("temporaryhitpoints" in req.body)
+      updateCharacter.temporaryhitpoints = req.body.temporaryhitpoints;
+    if ("armorclass" in req.body)
+      updateCharacter.armorclass = req.body.armorclass;
+    if ("inventory" in req.body) updateCharacter.inventory = req.body.inventory;
+  } catch (error) {
+    console.error(error.message);
+    res
+      .status(400)
+      .json({ status: "error", msg: "Error in updating character" });
+  }
+};
+
 module.exports = {
   getAllCharacters,
   addCharacter,
