@@ -81,6 +81,7 @@ const updateCharacter = async (req, res) => {
     if ("armorclass" in req.body)
       updateCharacter.armorclass = req.body.armorclass;
     if ("inventory" in req.body) updateCharacter.inventory = req.body.inventory;
+    if ("player" in req.body) updateCharacter.player = req.body.player;
 
     const character = await CharactersModal.findByIdAndUpdate(
       req.body._id,
