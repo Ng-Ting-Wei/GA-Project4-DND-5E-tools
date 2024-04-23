@@ -92,4 +92,5 @@ const updateCharacter = async (req, res) => {
 module.exports = {
   getAllCharacters,
   addCharacter,
+  updateCharacter,
 };
