@@ -17,6 +17,20 @@ const getAllCharacters = async (req, res) => {
   }
 };
 
+const getCharacterById = async (req, res) => {
+  try {
+    const character = await CharactersModal.findById(req.body._id);
+    if (character.length)
+      res.json({ status: "ok", msg: "character found", data: character });
+    else res.json({ status: "error", msg: "Character id does not exist" });
+  } catch (error) {
+    console.error(error.message);
+    res
+      .status(400)
+      .json({ status: "error", msg: "Error in getting character id" });
+  }
+};
+
 const addCharacter = async (req, res) => {
   try {
     const newCharacter = {
@@ -123,6 +137,7 @@ const deleteCharacter = async (req, res) => {
 
 module.exports = {
   getAllCharacters,
+  getCharacterById,
   addCharacter,
   updateCharacter,
   deleteCharacter,
