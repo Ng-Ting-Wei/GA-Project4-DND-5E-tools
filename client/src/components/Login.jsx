@@ -1,13 +1,14 @@
 import React, { useContext, useState } from "react";
 import useFetch from "../hooks/useFetch";
-import { useUserInfo } from "../context/user";
+import userContext from "../context/user";
+import { useInfo } from "../context/info";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const fetchData = useFetch();
   const navigate = useNavigate();
-  const userCtx = useContext(useUserInfo);
-  const { setUserInfo, setUserById } = useUserInfo();
+  const userCtx = useContext(userContext);
+  const { setUserInfo, setUserById } = useInfo();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,6 +25,7 @@ const Login = () => {
       setUserInfo(res.data.data);
       setUserById(res.data.data);
       // redirect to player page after login
+      if (userCtx) navigate("/player");
     } else {
       alert(JSON.stringify(res.data));
     }
