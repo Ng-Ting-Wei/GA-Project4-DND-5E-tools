@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,7 @@ const Registration = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [roles, setRoles] = useState("");
+  const [roles, setRoles] = useState([]);
   const [role, setRole] = useState("");
 
   const getRoles = async () => {
@@ -47,6 +47,7 @@ const Registration = () => {
       <br />
       <div>
         <input
+          className="col-md-4"
           placeholder="email"
           type="text"
           value={email}
@@ -57,6 +58,7 @@ const Registration = () => {
       </div>
       <div>
         <input
+          className="col-md-4"
           placeholder="username"
           type="text"
           value={username}
@@ -67,6 +69,7 @@ const Registration = () => {
       </div>
       <div>
         <input
+          className="col-md-4"
           placeholder="password"
           type="text"
           value={password}
@@ -79,6 +82,7 @@ const Registration = () => {
         <select
           name="roles"
           id="roles"
+          className="col-md-4"
           value={role}
           onChange={(e) => {
             setRole(e.target.value);
@@ -94,10 +98,12 @@ const Registration = () => {
           })}
         </select>
       </div>
-      <button type="submit" onClick={registerUser}>
+      <button className="col-md-4" type="submit" onClick={registerUser}>
         Register
       </button>
-      <Link to="/login">Already have an account?</Link>
+      <div>
+        <Link to="/login">Already have an account?</Link>
+      </div>
     </>
   );
 };

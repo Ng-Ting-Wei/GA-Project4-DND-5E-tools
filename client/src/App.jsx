@@ -10,11 +10,19 @@ import { Navigate, Route, Routes } from "react-router-dom";
 function App() {
   const [accessToken, setAccessToken] = useState("");
   const [userById, setUserById] = useState("");
+  const [userRole, setUserRole] = useState("");
 
   return (
     <div>
       <UserContext.Provider
-        value={{ accessToken, setAccessToken, userById, setUserById }}
+        value={{
+          accessToken,
+          setAccessToken,
+          userById,
+          setUserById,
+          userRole,
+          setUserRole,
+        }}
       >
         <Routes>
           <Route path="/" element={<Navigate replace to="/login" />}></Route>

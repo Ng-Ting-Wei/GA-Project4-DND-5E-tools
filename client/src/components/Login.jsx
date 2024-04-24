@@ -21,6 +21,7 @@ const Login = () => {
       userCtx.setAccessToken(res.data.access);
       const userData = res.data;
       userCtx.setUserById(userData.data._id);
+      userCtx.setUserRole(userData.data.role);
 
       setUserInfo(res.data.data);
       setUserById(res.data.data);
@@ -56,7 +57,9 @@ const Login = () => {
       <button className="col-md-4" type="submit" onClick={handleLogin}>
         Login
       </button>
-      <Link to="/register">Don't have an Account? Sign up here</Link>
+      <div>
+        <Link to="/register">Don't have an Account? Sign up here</Link>
+      </div>
     </>
   );
 };
