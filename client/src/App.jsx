@@ -5,7 +5,7 @@ import DungeonMaster from "./pages/DungeonMaster";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import UserContext from "./context/user";
-import { Navigate } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
   const [accessToken, setAccessToken] = useState("");

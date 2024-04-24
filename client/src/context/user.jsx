@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 
-const InfoContext = React.createContext();
+const UserContext = React.createContext();
 
-export const InfoProvider = ({ children }) => {
+export const UserProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [accessToken, setAccessToken] = useState("");
   const [token, setToken] = useState("");
   const [userInfo, setUserInfo] = useState({});
   const [userById, setUserById] = useState({});
@@ -33,6 +34,8 @@ export const InfoProvider = ({ children }) => {
     token,
     userInfo,
     userById,
+    accessToken,
+    setAccessToken,
     storeToken,
     storeUser,
     login,
@@ -41,9 +44,11 @@ export const InfoProvider = ({ children }) => {
     setUserById,
   };
 
-  return <InfoContext.Provider value={value}>{children}</InfoContext.Provider>;
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
 
-export const useInfo = () => {
-  return useContext(InfoContext);
+export const useUserInfo = () => {
+  return useContext(UserContext);
 };
+
+export default UserContext;
