@@ -45,7 +45,7 @@ const register = async (req, res) => {
       email: req.body.email,
       username: req.body.username,
       password: password,
-      role: req.body.role || "user",
+      role: req.body.role || "Player",
       characters: [],
       npcs: [],
     });
