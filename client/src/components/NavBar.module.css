@@ -1,0 +1,31 @@
+.navbar {
+  height: 5rem;
+  background-color: red;
+}
+.navbar nav {
+  height: 100%;
+}
+.navbar ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+.navbar li {
+  margin: 0 1rem;
+  width: 10rem;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+.navbar a:hover,
+.navbar a:active,
+.navbar a.active {
+  color: whitesmoke;
+  padding-bottom: 0.25rem;
+  border-bottom: 4px solid whitesmoke;
+}
