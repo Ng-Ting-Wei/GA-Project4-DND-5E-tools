@@ -12,7 +12,7 @@ const NavBar = () => {
               className={(navData) => (navData.isActive ? styles.active : "")}
               to="/player"
             >
-              Main
+              Player
             </NavLink>
           </li>
           <li>
@@ -20,7 +20,7 @@ const NavBar = () => {
               className={(navData) => (navData.isActive ? styles.active : "")}
               to="/dungeonmaster"
             >
-              Members
+              NPCs
             </NavLink>
           </li>
         </ul>

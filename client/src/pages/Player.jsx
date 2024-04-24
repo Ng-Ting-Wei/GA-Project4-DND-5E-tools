@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useInfo } from "../context/info";
 import UserContext from "../context/user";
 import useFetch from "../hooks/useFetch";
+import NavBar from "../components/NavBar";
 
 const Player = () => {
   const {
@@ -31,6 +32,7 @@ const Player = () => {
 
   return (
     <div>
+      {userCtx.userRole === "DungeonMaster" && <NavBar />}
       <button onClick={handleTest}>Test Button</button>
     </div>
   );
