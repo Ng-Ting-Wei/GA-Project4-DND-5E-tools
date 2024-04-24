@@ -8,7 +8,7 @@ const Login = () => {
   const fetchData = useFetch();
   const navigate = useNavigate();
   const userCtx = useContext(userContext);
-  const { setUserInfo, setUserById } = useInfo();
+  const { setUserInfo, setUserById, setUserRole } = useInfo();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,6 +24,7 @@ const Login = () => {
 
       setUserInfo(res.data.data);
       setUserById(res.data.data);
+      setUserRole(res.data.role);
       // redirect to player page after login
       navigate("/player");
     } else {

@@ -7,6 +7,7 @@ export const InfoProvider = ({ children }) => {
   const [token, setToken] = useState("");
   const [userInfo, setUserInfo] = useState({});
   const [userById, setUserById] = useState({});
+  const [userRole, setUserRole] = useState({});
 
   const storeToken = (token) => {
     setToken(token);
@@ -33,12 +34,14 @@ export const InfoProvider = ({ children }) => {
     token,
     userInfo,
     userById,
+    userRole,
     storeToken,
     storeUser,
     login,
     logout,
     setUserInfo,
     setUserById,
+    setUserRole,
   };
 
   return <InfoContext.Provider value={value}>{children}</InfoContext.Provider>;
