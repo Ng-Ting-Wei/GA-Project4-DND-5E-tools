@@ -25,7 +25,7 @@ const Login = () => {
       setUserInfo(res.data.data);
       setUserById(res.data.data);
       // redirect to player page after login
-      if (userCtx) navigate("/player");
+      navigate("/player");
     } else {
       alert(JSON.stringify(res.data));
     }
