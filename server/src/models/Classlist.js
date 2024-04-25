@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Feature = new mongoose.Schema({
   name: { type: String, require: true },
-  description: { type: String },
+  description: { type: String, require: true },
 });
 
 const ClasslistSchema = new mongoose.Schema(
