@@ -3,6 +3,7 @@ import { useInfo } from "../context/info";
 import UserContext from "../context/user";
 import useFetch from "../hooks/useFetch";
 import NavBar from "../components/NavBar";
+import CharacterDisplay from "../components/CharacterDisplay";
 
 const Player = () => {
   const {
@@ -24,7 +25,7 @@ const Player = () => {
   const fetchData = useFetch();
 
   const userId = userCtx.userById;
-  const test01 = userCtx.userRole;
+  const test01 = userCtx.userById;
 
   const handleTest = () => {
     console.log(test01);
@@ -33,6 +34,7 @@ const Player = () => {
   return (
     <div>
       {userCtx.userRole === "DungeonMaster" && <NavBar />}
+      <CharacterDisplay></CharacterDisplay>
       <button onClick={handleTest}>Test Button</button>
     </div>
   );
