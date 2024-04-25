@@ -1,8 +1,8 @@
-const Classlist = require("../models/Classlist");
+const ClasslistModal = require("../models/Classlist");
 
 const getAllClasslist = async (req, res) => {
   try {
-    const classlists = await Classlist.find();
+    const classlists = await ClasslistModal.find();
     // mapping classlists first then mapping classlists.detail
     res.json(
       classlists.map((item) => ({
@@ -16,4 +16,20 @@ const getAllClasslist = async (req, res) => {
   }
 };
 
-module.exports = { getAllClasslist };
+const addClasses = async (req, res) => {
+  try {
+    const newClasses = {
+      classlist: req.body.classlist,
+      detail: req.body.detail,
+    };
+
+    const classes = await ClasslistModal.create(newClasses);
+
+    res.json({ status: "ok", msg: "classlist saved", data: classes });
+  } catch (error) {
+    console.error(error.message);
+    res.status(400).json({ status: "error", msg: "error adding class" });
+  }
+};
+
+module.exports = { getAllClasslist, addClasses };
