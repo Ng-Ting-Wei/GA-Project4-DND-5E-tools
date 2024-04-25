@@ -54,7 +54,7 @@ const addCharacter = async (req, res) => {
     const newCharacter = {
       name: req.body.name,
       race: req.body.race,
-      class: req.body.class,
+      class: req.body.classes,
       level: req.body.level,
       background: req.body.background,
       savingthrows: req.body.savingthrows,
