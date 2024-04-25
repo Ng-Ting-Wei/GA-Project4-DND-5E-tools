@@ -2,10 +2,6 @@ const { body } = require("express-validator");
 
 const checkAddCharacterInput = [
   body("classlist", "name is required").not().isEmpty(),
-  body("classlist", "name must be between 1 and 100 characters").isLength({
-    min: 1,
-    max: 100,
-  }),
   body("race", "race is required").not().isEmpty(),
   body("race", "race is must be character").isString(),
   body("class", "class is required").not().isEmpty(),

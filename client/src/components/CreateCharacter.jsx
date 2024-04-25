@@ -13,7 +13,6 @@ const CreateCharacter = () => {
   const [race, setRace] = useState([]);
   const [classes, setClasses] = useState("");
   const [classlist, setClasslist] = useState([]);
-  const [selectedClassDetails, setSelectedClassDetails] = useState("");
   const [background, setBackground] = useState([]);
   const [savingthrows, setSavingthows] = useState([]);
   const [skill, setSkill] = useState([]);
@@ -99,7 +98,6 @@ const CreateCharacter = () => {
           value={classes}
           onChange={(e) => {
             setClasses(e.target.value);
-            selectedClassDetails(e.target.value);
           }}
         >
           <option value="none">please select</option>
