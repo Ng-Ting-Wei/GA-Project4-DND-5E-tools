@@ -14,3 +14,5 @@ const getAllClasslist = async (req, res) => {
     res.status(400).json({ status: "error", msg: "cannot get classlist" });
   }
 };
+
+module.exports = { getAllClasslist };
