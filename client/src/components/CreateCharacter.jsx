@@ -85,15 +85,6 @@ const CreateCharacter = () => {
     getClasslist();
   }, []);
 
-  const handleClassSelect = (e) => {
-    const selectedClass = e.target.value;
-    const classDetails = classlist.find(
-      (item) => item.classlist === selectedClass
-    );
-    setSelectedClassDetails(classDetails);
-    setClasses(selectedClass);
-  };
-
   const handleCreated = () => {
     createCharacter();
     navigate("/player");
@@ -106,7 +97,10 @@ const CreateCharacter = () => {
           name="classlist"
           id="classlist"
           value={classes}
-          onChange={handleClassSelect}
+          onChange={(e) => {
+            setClasses(e.target.value);
+            selectedClassDetails(e.target.value);
+          }}
         >
           <option value="none">please select</option>
           {classlist.map((item, index) => {
@@ -118,13 +112,7 @@ const CreateCharacter = () => {
           })}
         </select>
       </div>
-      {/* // Render class details only when a class is selected */}
-      {selectedClassDetails && (
-        <div>
-          <h2>Class Details</h2>
-          <p>{selectedClassDetails.detail}</p>
-        </div>
-      )}
+
       <button onClick={handleCreated}>Create Character</button>
     </div>
   );
