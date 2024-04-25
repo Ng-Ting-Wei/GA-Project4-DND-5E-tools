@@ -77,6 +77,11 @@ const CreateCharacter = () => {
 
   return (
     <div>
+      <div>
+        <select>
+          <option value="none">please select</option>
+        </select>
+      </div>
       <button onClick={handleCreated}>Create Character</button>
     </div>
   );
