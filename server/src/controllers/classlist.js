@@ -39,6 +39,8 @@ const getClassByName = async (req, res) => {
     });
     if (classes) {
       res.json({ status: "ok", msg: "classes found", data: classes });
+    } else {
+      res.json({ status: "ok", msg: "there is no such classes" });
     }
   } catch (error) {
     console.error(error.message);
