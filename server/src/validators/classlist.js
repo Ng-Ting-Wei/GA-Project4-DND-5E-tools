@@ -10,7 +10,8 @@ const checkClasslistInput = [
 ];
 
 const checkGetClassByName = [
-  body("classlist", "name is required").not().isEmpty(),
+  body("classlist", "classlist is required").not().isEmpty(),
+  body("classlist", "classlist is require to be lowercase").isLowercase(),
 ];
 
 module.exports = { checkClasslistInput, checkGetClassByName };

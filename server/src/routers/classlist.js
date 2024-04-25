@@ -10,6 +10,7 @@ const {
   checkGetClassByName,
 } = require("../validators/classlist");
 const { errorCheck } = require("../validators/errorCheck");
+const auth = require("../middleware/users");
 
 router.get("/classlist", getAllClasslist);
 router.put("/classlist", checkClasslistInput, errorCheck, addClasses);
