@@ -37,32 +37,6 @@ const CharacterDisplay = () => {
     navigate("/createcharacter");
   };
 
-  const createCharacter = async () => {
-    const res = await fetchData(
-      "/api/characters",
-      "PUT",
-      {
-        name: "Greg",
-        race: "human",
-        class: "fighter",
-        background: "noble",
-        savingthrows: ["strength", "constitution"],
-        skill: ["athletics", "perception", "persuasion", "history"],
-        strength: 14,
-        dexterity: 14,
-        constitution: 14,
-        intelligence: 10,
-        wisdom: 13,
-        charisma: 12,
-        hitpoints: 12,
-        armorclass: 16,
-        inventory: ["longsword", "bow", "20 Arrows", "Chain mail"],
-        player: "6625e8c74da19164738ae814",
-      },
-      userCtx.accessToken
-    );
-  };
-
   const handleTest = () => {
     console.log(characters);
   };
