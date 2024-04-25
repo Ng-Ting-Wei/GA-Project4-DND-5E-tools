@@ -46,4 +46,4 @@ const getClassByName = async (req, res) => {
   }
 };
 
-module.exports = { getAllClasslist, addClasses };
+module.exports = { getAllClasslist, addClasses, getClassByName };
