@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import UserContext from "../context/user";
 import { useInfo } from "../context/info";
+import { useNavigate } from "react-router-dom";
 
 const CharacterDisplay = () => {
   const userCtx = useContext(UserContext);
   const fetchData = useFetch();
+  const navigate = useNavigate();
   const userId = userCtx.userById;
   const [characters, setCharacters] = useState([]);
 
@@ -30,6 +32,10 @@ const CharacterDisplay = () => {
   useEffect(() => {
     getCharacters();
   }, []);
+
+  const handleCreateCharacter = () => {
+    navigate("/createcharacter");
+  };
 
   const createCharacter = async () => {
     const res = await fetchData(
@@ -66,7 +72,7 @@ const CharacterDisplay = () => {
       <div className="row">
         <div className="col-md-3">Characters</div>
       </div>
-      <button onClick={createCharacter}>Create Character</button>
+      <button onClick={handleCreateCharacter}>Create Character</button>
 
       {characters.map((item) => (
         <div key={item._id} style={{ marginBottom: "10px" }}>
