@@ -7,6 +7,7 @@ const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 
 const users = require("./src/routers/users");
+const classlist = require("./src/routers/classlist");
 const roles = require("./src/routers/roles");
 const character = require("./src/routers/characters");
 
@@ -31,6 +32,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api", users);
 app.use("/api", roles);
 app.use("/api", character);
+app.use("/api", classlist);
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
