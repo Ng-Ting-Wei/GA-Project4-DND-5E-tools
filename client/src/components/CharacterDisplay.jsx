@@ -2,14 +2,12 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import UserContext from "../context/user";
 import { useInfo } from "../context/info";
-import CharacterModal from "./CharacterModal";
 
 const CharacterDisplay = () => {
   const userCtx = useContext(UserContext);
   const fetchData = useFetch();
   const userId = userCtx.userById;
   const [characters, setCharacters] = useState([]);
-  const [showCharacterModal, setShowCharacterModal] = useState(false);
 
   const getCharacters = async () => {
     const res = await fetchData(
@@ -69,12 +67,6 @@ const CharacterDisplay = () => {
         <div className="col-md-3">Characters</div>
       </div>
       <button onClick={createCharacter}>Create Character</button>
-
-      {showCharacterModal && (
-        <CharacterModal
-          setShowCharacterModal={setShowCharacterModal}
-        ></CharacterModal>
-      )}
 
       {characters.map((item) => (
         <div key={item._id} style={{ marginBottom: "10px" }}>
