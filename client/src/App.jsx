@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import Player from "./pages/Player";
 import DungeonMaster from "./pages/DungeonMaster";
 import Register from "./pages/Register";
+import CreateCharacter from "./pages/CreateCharacter";
 import NotFound from "./pages/NotFound";
 import UserContext from "./context/user";
 import { Navigate, Route, Routes } from "react-router-dom";
@@ -30,6 +31,7 @@ function App() {
           <Route path="register" element={<Register />}></Route>
           <Route path="player" element={<Player />}></Route>
           <Route path="dungeonmaster" element={<DungeonMaster />}></Route>
+          <Route path="createCharacter" element={<CreateCharacter />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </UserContext.Provider>
