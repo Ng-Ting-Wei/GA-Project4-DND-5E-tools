@@ -34,7 +34,7 @@ const CharacterDisplay = () => {
   }, []);
 
   const handleCreateCharacter = () => {
-    navigate("/createcharacter");
+    navigate("/charactercreation");
   };
 
   const handleTest = () => {
