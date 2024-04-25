@@ -32,4 +32,18 @@ const addClasses = async (req, res) => {
   }
 };
 
+const getClassByName = async (req, res) => {
+  try {
+    const classes = await ClasslistModal.find({
+      classlist: req.body.classlist,
+    });
+    if (classes) {
+      res.json({ status: "ok", msg: "classes found", data: classes });
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(400).json({ status: "error", msg: "Error in getting classes" });
+  }
+};
+
 module.exports = { getAllClasslist, addClasses };
