@@ -5,9 +5,14 @@ const {
   addClasses,
   getClassByName,
 } = require("../controllers/classlist");
+const {
+  checkClasslistInput,
+  checkGetClassByName,
+} = require("../validators/classlist");
+const { errorCheck } = require("../validators/errorCheck");
 
 router.get("/classlist", getAllClasslist);
-router.put("/classlist", addClasses);
-router.post("/classlist", getClassByName);
+router.put("/classlist", checkClasslistInput, errorCheck, addClasses);
+router.post("/classlist", checkGetClassByName, errorCheck, getClassByName);
 
 module.exports = router;
