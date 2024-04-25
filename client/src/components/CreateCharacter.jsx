@@ -11,7 +11,9 @@ const CreateCharacter = () => {
   const userId = userCtx.userById;
   const [name, setName] = useState("");
   const [race, setRace] = useState([]);
-  const [classes, setClasses] = useState();
+  const [classes, setClasses] = useState("");
+  const [classlist, setClasslist] = useState([]);
+  const [selectedClassDetails, setSelectedClassDetails] = useState("");
   const [background, setBackground] = useState([]);
   const [savingthrows, setSavingthows] = useState([]);
   const [skill, setSkill] = useState([]);
@@ -24,6 +26,15 @@ const CreateCharacter = () => {
   const [hitpoints, setHitpoints] = useState();
   const [armorclass, setArmorclass] = useState();
   const [inventory, setInventory] = useState([]);
+
+  const getClasslist = async () => {
+    const res = await fetchData("/api/classlist");
+    if (res.ok) {
+      setClasslist(res.data);
+    } else {
+      console.log(res.data);
+    }
+  };
 
   const createCharacter = async () => {
     const res = await fetchData(
@@ -70,6 +81,19 @@ const CreateCharacter = () => {
     }
   };
 
+  useEffect(() => {
+    getClasslist();
+  }, []);
+
+  const handleClassSelect = (e) => {
+    const selectedClass = e.target.value;
+    const classDetails = classlist.find(
+      (item) => item.classlist === selectedClass
+    );
+    setSelectedClassDetails(classDetails);
+    setClasses(selectedClass);
+  };
+
   const handleCreated = () => {
     createCharacter();
     navigate("/player");
@@ -78,10 +102,29 @@ const CreateCharacter = () => {
   return (
     <div>
       <div>
-        <select>
+        <select
+          name="classlist"
+          id="classlist"
+          value={classes}
+          onChange={handleClassSelect}
+        >
           <option value="none">please select</option>
+          {classlist.map((item, index) => {
+            return (
+              <option key={index} value={item.classlist}>
+                {item.classlist}
+              </option>
+            );
+          })}
         </select>
       </div>
+      {/* // Render class details only when a class is selected */}
+      {selectedClassDetails && (
+        <div>
+          <h2>Class Details</h2>
+          <p>{selectedClassDetails.detail}</p>
+        </div>
+      )}
       <button onClick={handleCreated}>Create Character</button>
     </div>
   );
