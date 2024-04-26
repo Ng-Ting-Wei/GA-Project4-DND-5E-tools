@@ -10,6 +10,7 @@ const users = require("./src/routers/users");
 const classlist = require("./src/routers/classlist");
 const races = require("./src/routers/races");
 const backgrounds = require("./src/routers/background");
+const savingthrow = require("./src/routers/savingthrows");
 const roles = require("./src/routers/roles");
 const character = require("./src/routers/characters");
 
@@ -37,6 +38,7 @@ app.use("/api", character);
 app.use("/api", classlist);
 app.use("/api", races);
 app.use("/api", backgrounds);
+app.use("/api", savingthrow);
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
