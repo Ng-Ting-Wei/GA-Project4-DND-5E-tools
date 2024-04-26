@@ -120,6 +120,16 @@ const CreateCharacter = () => {
   return (
     <div>
       <div>
+        Name:
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        ></input>
+      </div>
+      <div>
         Class:
         <select
           name="classlist"
