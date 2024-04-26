@@ -8,6 +8,7 @@ const rateLimit = require("express-rate-limit");
 
 const users = require("./src/routers/users");
 const classlist = require("./src/routers/classlist");
+const races = require("./src/routers/races");
 const roles = require("./src/routers/roles");
 const character = require("./src/routers/characters");
 
@@ -33,6 +34,7 @@ app.use("/api", users);
 app.use("/api", roles);
 app.use("/api", character);
 app.use("/api", classlist);
+app.use("/api", races);
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
