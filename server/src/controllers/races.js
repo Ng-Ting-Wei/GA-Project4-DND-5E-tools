@@ -16,4 +16,20 @@ const getAllRacelist = async (req, res) => {
   }
 };
 
-module.exports = { getAllRacelist };
+const addRace = async (req, res) => {
+  try {
+    const newRace = {
+      racelist: req.body.racelist,
+      detail: req.body.detail,
+    };
+
+    const races = await RacelistModal.create(newRace);
+
+    res.json({ status: "ok", msg: "race saved", data: races });
+  } catch (error) {
+    console.error(error.message);
+    res.status(400).json({ status: "error", msg: "error adding race" });
+  }
+};
+
+module.exports = { getAllRacelist, addRace };
