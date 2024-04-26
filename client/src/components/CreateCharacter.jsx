@@ -10,7 +10,8 @@ const CreateCharacter = () => {
   const navigate = useNavigate();
   const userId = userCtx.userById;
   const [name, setName] = useState("");
-  const [race, setRace] = useState([]);
+  const [race, setRace] = useState("");
+  const [racelist, setRacelist] = useState([]);
   const [classes, setClasses] = useState("");
   const [classlist, setClasslist] = useState([]);
   const [classlistSelect, setClasslistSelect] = useState("");
@@ -31,6 +32,15 @@ const CreateCharacter = () => {
     const res = await fetchData("/api/classlist");
     if (res.ok) {
       setClasslist(res.data);
+    } else {
+      console.log(res.data);
+    }
+  };
+
+  const getRacelist = async () => {
+    const res = await fetchData("/api/racelist");
+    if (res.ok) {
+      setRacelist(res.data);
     } else {
       console.log(res.data);
     }
@@ -99,6 +109,7 @@ const CreateCharacter = () => {
 
   useEffect(() => {
     getClasslist();
+    getRacelist();
   }, []);
 
   const handleCreated = () => {
@@ -109,6 +120,7 @@ const CreateCharacter = () => {
   return (
     <div>
       <div>
+        Class:
         <select
           name="classlist"
           id="classlist"
@@ -122,6 +134,27 @@ const CreateCharacter = () => {
             return (
               <option key={index} value={item.classlist}>
                 {item.classlist}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+
+      <div>
+        Race:
+        <select
+          name="racelist"
+          id="racelist"
+          value={race}
+          onChange={(e) => {
+            setRace(e.target.value);
+          }}
+        >
+          <option value="none">please select</option>
+          {racelist.map((item, index) => {
+            return (
+              <option key={index} value={item.racelist}>
+                {item.racelist}
               </option>
             );
           })}
