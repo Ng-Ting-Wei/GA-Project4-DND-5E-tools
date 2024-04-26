@@ -19,14 +19,14 @@ const CreateCharacter = () => {
   const [backgroundlist, setBackgroundlist] = useState([]);
   const [savingthrows, setSavingthows] = useState([]);
   const [skill, setSkill] = useState([]);
-  const [strength, setStrength] = useState();
-  const [dexterity, setDexterity] = useState();
-  const [constitution, setConsitution] = useState();
-  const [intelligence, setIntelligence] = useState();
-  const [wisdom, setWisdom] = useState();
-  const [charisma, setCharisma] = useState();
-  const [hitpoints, setHitpoints] = useState();
-  const [armorclass, setArmorclass] = useState();
+  const [strength, setStrength] = useState("");
+  const [dexterity, setDexterity] = useState("");
+  const [constitution, setConsitution] = useState("");
+  const [intelligence, setIntelligence] = useState("");
+  const [wisdom, setWisdom] = useState("");
+  const [charisma, setCharisma] = useState("");
+  const [hitpoints, setHitpoints] = useState("");
+  const [armorclass, setArmorclass] = useState("");
   const [inventory, setInventory] = useState([]);
 
   const getClasslist = async () => {
@@ -77,10 +77,10 @@ const CreateCharacter = () => {
       "/api/characters",
       "PUT",
       {
-        name,
-        race,
-        classes,
-        background,
+        name: name,
+        race: race,
+        classes: classes,
+        background: background,
         savingthrows,
         skill,
         strength,
@@ -122,6 +122,8 @@ const CreateCharacter = () => {
     getRacelist();
     getBackgroundlist();
   }, []);
+
+  const handleSavingThrows = () => {};
 
   const handleCreated = () => {
     createCharacter();
@@ -200,6 +202,13 @@ const CreateCharacter = () => {
               </option>
             );
           })}
+        </select>
+      </div>
+
+      <div>
+        Savingthows:
+        <select name="savingthrows">
+          <option></option>
         </select>
       </div>
 
