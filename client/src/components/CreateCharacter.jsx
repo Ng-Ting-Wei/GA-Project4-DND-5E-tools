@@ -13,6 +13,7 @@ const CreateCharacter = () => {
   const [race, setRace] = useState([]);
   const [classes, setClasses] = useState("");
   const [classlist, setClasslist] = useState([]);
+  const [classlistSelect, setClasslistSelect] = useState("");
   const [background, setBackground] = useState([]);
   const [savingthrows, setSavingthows] = useState([]);
   const [skill, setSkill] = useState([]);
@@ -30,6 +31,22 @@ const CreateCharacter = () => {
     const res = await fetchData("/api/classlist");
     if (res.ok) {
       setClasslist(res.data);
+    } else {
+      console.log(res.data);
+    }
+  };
+
+  const getClassByName = async () => {
+    const res = await fetchData(
+      "/api/classlist",
+      "POST",
+      {
+        classlist: classlist,
+      },
+      userCtx.accessToken
+    );
+    if (res.ok) {
+      setClasslistSelect(res.data);
     } else {
       console.log(res.data);
     }
