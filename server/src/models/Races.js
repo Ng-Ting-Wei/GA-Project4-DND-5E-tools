@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const RacelistSchema = new mongoose.Schema(
   {
-    racelist: { type: String, require: true },
+    race: { type: String, require: true },
     detail: [{ type: String, require: true }],
     created_at: { type: Date, default: Date.now },
   },

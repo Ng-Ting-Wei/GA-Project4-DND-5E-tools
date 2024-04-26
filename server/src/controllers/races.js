@@ -6,7 +6,7 @@ const getAllRacelist = async (req, res) => {
     // mapping racelists first then mapping racelists.detail
     res.json(
       racelists.map((item) => ({
-        racelist: item.racelist,
+        race: item.race,
         details: item.detail.map((detailItem) => ({ detail: detailItem })),
       }))
     );
@@ -19,7 +19,7 @@ const getAllRacelist = async (req, res) => {
 const addRace = async (req, res) => {
   try {
     const newRace = {
-      racelist: req.body.racelist,
+      race: req.body.race,
       detail: req.body.detail,
     };
 
