@@ -15,7 +15,8 @@ const CreateCharacter = () => {
   const [classes, setClasses] = useState("");
   const [classlist, setClasslist] = useState([]);
   const [classlistSelect, setClasslistSelect] = useState("");
-  const [background, setBackground] = useState([]);
+  const [background, setBackground] = useState("");
+  const [backgroundlist, setBackgroundlist] = useState([]);
   const [savingthrows, setSavingthows] = useState([]);
   const [skill, setSkill] = useState([]);
   const [strength, setStrength] = useState();
@@ -41,6 +42,15 @@ const CreateCharacter = () => {
     const res = await fetchData("/api/racelist");
     if (res.ok) {
       setRacelist(res.data);
+    } else {
+      console.log(res.data);
+    }
+  };
+
+  const getBackgroundlist = async () => {
+    const res = await fetchData("/api/backgroundlist");
+    if (res.ok) {
+      setBackgroundlist(res.data);
     } else {
       console.log(res.data);
     }
@@ -110,6 +120,7 @@ const CreateCharacter = () => {
   useEffect(() => {
     getClasslist();
     getRacelist();
+    getBackgroundlist();
   }, []);
 
   const handleCreated = () => {
@@ -163,8 +174,29 @@ const CreateCharacter = () => {
           <option value="none">please select</option>
           {racelist.map((item, index) => {
             return (
-              <option key={index} value={item.racelist}>
-                {item.racelist}
+              <option key={index} value={item.race}>
+                {item.race}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+
+      <div>
+        Background:
+        <select
+          name="backgroundlist"
+          id="backgroundlist"
+          value={background}
+          onChange={(e) => {
+            setBackground(e.target.value);
+          }}
+        >
+          <option value="none">please select</option>
+          {backgroundlist.map((item, index) => {
+            return (
+              <option key={index} value={item.background}>
+                {item.background}
               </option>
             );
           })}
