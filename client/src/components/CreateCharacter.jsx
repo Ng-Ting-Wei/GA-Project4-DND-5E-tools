@@ -14,10 +14,11 @@ const CreateCharacter = () => {
   const [racelist, setRacelist] = useState([]);
   const [classes, setClasses] = useState("");
   const [classlist, setClasslist] = useState([]);
-  const [classlistSelect, setClasslistSelect] = useState("");
   const [background, setBackground] = useState("");
   const [backgroundlist, setBackgroundlist] = useState([]);
-  const [savingthrows, setSavingthows] = useState([]);
+  const [savingthrows, setSavingthrows] = useState([]);
+  const [savingthrowslist, setSavingthrowslist] = useState([]);
+
   const [skill, setSkill] = useState([]);
   const [strength, setStrength] = useState("");
   const [dexterity, setDexterity] = useState("");
@@ -56,6 +57,15 @@ const CreateCharacter = () => {
     }
   };
 
+  const getSavingthrowlist = async () => {
+    const res = await fetchData("/api/savingthrowlist");
+    if (res.ok) {
+      setSavingthrowslist(res.data);
+    } else {
+      console.log(res.data);
+    }
+  };
+
   const getClassByName = async () => {
     const res = await fetchData(
       "/api/classlist",
@@ -81,7 +91,7 @@ const CreateCharacter = () => {
         race: race,
         classes: classes,
         background: background,
-        savingthrows,
+        savingthrows: savingthrows,
         skill,
         strength,
         dexterity,
@@ -101,8 +111,8 @@ const CreateCharacter = () => {
       setRace("");
       setClasses("");
       setBackground("");
-      setSavingthows("");
-      setSkill("");
+      setSavingthrows([]);
+      setSkill([]);
       setStrength("");
       setDexterity("");
       setConsitution("");
@@ -111,7 +121,7 @@ const CreateCharacter = () => {
       setCharisma("");
       setHitpoints("");
       setArmorclass("");
-      setInventory("");
+      setInventory([]);
     } else {
       console.log(res.data);
     }
@@ -121,9 +131,23 @@ const CreateCharacter = () => {
     getClasslist();
     getRacelist();
     getBackgroundlist();
+    getSavingthrowlist();
   }, []);
 
-  const handleSavingThrows = () => {};
+  const toggleSavingThrow = (item) => {
+    if (savingthrows.includes(item.savingthrow)) {
+      // Remove the item from the array
+      setSavingthrows(
+        savingthrows.filter((items) => items !== item.savingthrow)
+      );
+    } else {
+      // Add the item to the array, but only if there are less than
+      // two selected item
+      if (savingthrows.length < 2) {
+        setSavingthrows([...savingthrows, item.savingthrow]);
+      }
+    }
+  };
 
   const handleCreated = () => {
     createCharacter();
@@ -206,10 +230,21 @@ const CreateCharacter = () => {
       </div>
 
       <div>
-        Savingthows:
-        <select name="savingthrows">
-          <option></option>
-        </select>
+        Saving Throws:
+        {savingthrowslist.map((item, index) => (
+          <label key={index}>
+            <input
+              type="checkbox"
+              checked={savingthrows.includes(item.savingthrow)}
+              onChange={() => toggleSavingThrow(item.savingthrow)}
+              disabled={
+                savingthrows.length === 2 &&
+                !savingthrows.includes(item.savingthrow)
+              }
+            />
+            {item.savingthrow}
+          </label>
+        ))}
       </div>
 
       <button onClick={handleCreated}>Create Character</button>
