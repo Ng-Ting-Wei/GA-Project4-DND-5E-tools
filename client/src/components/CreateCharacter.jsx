@@ -18,8 +18,8 @@ const CreateCharacter = () => {
   const [backgroundlist, setBackgroundlist] = useState([]);
   const [savingthrows, setSavingthrows] = useState([]);
   const [savingthrowslist, setSavingthrowslist] = useState([]);
-
   const [skill, setSkill] = useState([]);
+  const [skilllist, setSkilllist] = useState([]);
   const [strength, setStrength] = useState("");
   const [dexterity, setDexterity] = useState("");
   const [constitution, setConsitution] = useState("");
@@ -66,17 +66,10 @@ const CreateCharacter = () => {
     }
   };
 
-  const getClassByName = async () => {
-    const res = await fetchData(
-      "/api/classlist",
-      "POST",
-      {
-        classlist: classlist,
-      },
-      userCtx.accessToken
-    );
+  const getSkilllist = async () => {
+    const res = await fetchData("/api/skilllist");
     if (res.ok) {
-      setClasslistSelect(res.data);
+      setSkilllist(res.data);
     } else {
       console.log(res.data);
     }
@@ -92,16 +85,16 @@ const CreateCharacter = () => {
         classes: classes,
         background: background,
         savingthrows: savingthrows,
-        skill,
-        strength,
-        dexterity,
-        constitution,
-        intelligence,
-        wisdom,
-        charisma,
-        hitpoints,
-        armorclass,
-        inventory,
+        skill: skill,
+        strength: strength,
+        dexterity: dexterity,
+        constitution: constitution,
+        intelligence: intelligence,
+        wisdom: wisdom,
+        charisma: charisma,
+        hitpoints: hitpoints,
+        armorclass: armorclass,
+        inventory: inventory,
         player: userId,
       },
       userCtx.accessToken
@@ -132,21 +125,45 @@ const CreateCharacter = () => {
     getRacelist();
     getBackgroundlist();
     getSavingthrowlist();
+    getSkilllist();
   }, []);
 
-  const toggleSavingThrow = (item) => {
-    if (savingthrows.includes(item.savingthrow)) {
-      // Remove the item from the array
-      setSavingthrows(
-        savingthrows.filter((items) => items !== item.savingthrow)
-      );
-    } else {
-      // Add the item to the array, but only if there are less than
-      // two selected item
-      if (savingthrows.length < 2) {
-        setSavingthrows([...savingthrows, item.savingthrow]);
+  const toggleSavingthrow = (item) => {
+    setSavingthrows((prevSavingthrows) => {
+      if (prevSavingthrows.includes(item.savingthrow)) {
+        // Remove the item from the array
+        return prevSavingthrows.filter(
+          (savingthrow) => savingthrow !== item.savingthrow
+        );
+      } else {
+        // Add the item to the array, but only if there are less than
+        // two selected item
+        if (prevSavingthrows.length < 2) {
+          return [...prevSavingthrows, item.savingthrow];
+        } else {
+          // Should have no change if already have two selected
+          return prevSavingthrows;
+        }
       }
-    }
+    });
+  };
+
+  const toggleSkills = (item) => {
+    setSkill((prevSkills) => {
+      if (prevSkills.includes(item.skill)) {
+        // Remove the item from the array
+        return prevSkills.filter((skills) => skills !== item.skill);
+      } else {
+        // Add the item to the array, but only if there are less than
+        // four selected item
+        if (prevSkills.length < 4) {
+          return [...prevSkills, item.skill];
+        } else {
+          // Should have no change if already have four selected
+          return prevSkills;
+        }
+      }
+    });
   };
 
   const handleCreated = () => {
@@ -236,13 +253,28 @@ const CreateCharacter = () => {
             <input
               type="checkbox"
               checked={savingthrows.includes(item.savingthrow)}
-              onChange={() => toggleSavingThrow(item.savingthrow)}
+              onChange={() => toggleSavingthrow(item)}
               disabled={
                 savingthrows.length === 2 &&
                 !savingthrows.includes(item.savingthrow)
               }
             />
             {item.savingthrow}
+          </label>
+        ))}
+      </div>
+
+      <div>
+        Skills:
+        {skilllist.map((item, index) => (
+          <label key={index}>
+            <input
+              type="checkbox"
+              checked={skill.includes(item.skill)}
+              onChange={() => toggleSkills(item)}
+              disabled={skill.length === 4 && !skill.includes(item.skill)}
+            />
+            {item.skill}
           </label>
         ))}
       </div>
