@@ -29,6 +29,46 @@ const CharacterDisplay = () => {
     }
   };
 
+  const viewCharacter = async (characterId) => {
+    const res = await fetchData(
+      "/api/characters/id",
+      "POST",
+      {
+        _id: characterId,
+      },
+      userCtx.accessToken
+    );
+
+    if (res.ok) {
+      // Navigate to the character view page or handle the response as needed
+    } else {
+      alert(JSON.stringify(res.data));
+      console.log(res.data);
+    }
+  };
+
+  const deleteCharacter = async (characterId) => {
+    const res = await fetchData(
+      "/api/characters",
+      "DELETE",
+      {
+        _id: userId,
+        character: characterId,
+      },
+      userCtx.accessToken
+    );
+
+    if (res.ok) {
+      setCharacters((prevCharacters) =>
+        prevCharacters.filter((character) => character._id !== characterId)
+      );
+      console.log("Character deleted");
+    } else {
+      alert(JSON.stringify(res.data));
+      console.log(res.data);
+    }
+  };
+
   useEffect(() => {
     getCharacters();
   }, []);
@@ -59,6 +99,22 @@ const CharacterDisplay = () => {
               {/* // Convert to local time in a readable format */}
               Date Created: {new Date(item.created_at).toLocaleString()}
             </span>
+            <span style={{ marginLeft: "10px" }}>
+              {/* // Convert to local time in a readable format */}
+              Character id: {item._id}
+            </span>
+            <button
+              className="col-md-2"
+              onClick={() => viewCharacter(item._id)}
+            >
+              View Character
+            </button>
+            <button
+              className="col-md-2"
+              onClick={() => deleteCharacter(item._id)}
+            >
+              Delete Character
+            </button>
           </div>
         </div>
       ))}
