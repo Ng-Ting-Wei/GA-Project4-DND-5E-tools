@@ -5,15 +5,15 @@ const InfoContext = createContext();
 const UserProvider = ({ children }) => {
   const [characterId, setCharacterId] = useState("");
 
-  const updateUser = (newUserData) => {
-    setUser((prevUser) => ({
-      ...prevUser,
-      ...newUserData,
+  const updateCharacterID = (newCharacterData) => {
+    setUser((prevCharacterData) => ({
+      ...prevCharacterData,
+      ...newCharacterData,
     }));
   };
 
   return (
-    <InfoContext.Provider value={{ user, updateUser }}>
+    <InfoContext.Provider value={{ characterId, updateCharacterID }}>
       {children}
     </InfoContext.Provider>
   );
