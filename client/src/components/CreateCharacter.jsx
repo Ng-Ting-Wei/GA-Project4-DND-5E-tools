@@ -13,6 +13,7 @@ const CreateCharacter = () => {
   const [racelist, setRacelist] = useState([]);
   const [classes, setClasses] = useState("");
   const [classlist, setClasslist] = useState([]);
+  const [level, setLevel] = useState("");
   const [background, setBackground] = useState("");
   const [backgroundlist, setBackgroundlist] = useState([]);
   const [savingthrows, setSavingthrows] = useState([]);
@@ -82,6 +83,7 @@ const CreateCharacter = () => {
         name: name,
         race: race,
         classes: classes,
+        level: level,
         background: background,
         savingthrows: savingthrows,
         skill: skill,
@@ -102,6 +104,7 @@ const CreateCharacter = () => {
       setName("");
       setRace("");
       setClasses("");
+      setLevel("");
       setBackground("");
       setSavingthrows([]);
       setSkill([]);
@@ -153,14 +156,8 @@ const CreateCharacter = () => {
         // Remove the item from the array
         return prevSkills.filter((skills) => skills !== item.skill);
       } else {
-        // Add the item to the array, but only if there are less than
-        // four selected item
-        if (prevSkills.length < 4) {
-          return [...prevSkills, item.skill];
-        } else {
-          // Should have no change if already have four selected
-          return prevSkills;
-        }
+        // Add the item to the array,
+        return [...prevSkills, item.skill];
       }
     });
   };
@@ -201,6 +198,14 @@ const CreateCharacter = () => {
             );
           })}
         </select>
+      </div>
+      <div>
+        Level:
+        <input
+          type="number"
+          value={level}
+          onChange={(e) => setLevel(parseInt(e.target.value))}
+        ></input>
       </div>
       <div>
         Race:
@@ -267,7 +272,6 @@ const CreateCharacter = () => {
               type="checkbox"
               checked={skill.includes(item.skill)}
               onChange={() => toggleSkills(item)}
-              disabled={skill.length === 4 && !skill.includes(item.skill)}
             />
             {item.skill}
           </label>
