@@ -170,6 +170,10 @@ const CreateCharacter = () => {
     navigate("/player");
   };
 
+  const handleGoCharacterList = () => {
+    navigate("/player");
+  };
+
   return (
     <div>
       <div>
@@ -366,6 +370,7 @@ const CreateCharacter = () => {
       </div>
 
       <button onClick={handleCreated}>Create Character</button>
+      <button onClick={handleGoCharacterList}>Go back to character list</button>
     </div>
   );
 };
