@@ -13,6 +13,7 @@ const CreateCharacter = () => {
   const [racelist, setRacelist] = useState([]);
   const [classes, setClasses] = useState("");
   const [classlist, setClasslist] = useState([]);
+  const [feature, setFeature] = useState([]);
   const [level, setLevel] = useState("");
   const [background, setBackground] = useState("");
   const [backgroundlist, setBackgroundlist] = useState([]);
@@ -83,6 +84,7 @@ const CreateCharacter = () => {
         name: name,
         race: race,
         classes: classes,
+        feature: feature,
         level: level,
         background: background,
         savingthrows: savingthrows,
@@ -104,6 +106,7 @@ const CreateCharacter = () => {
       setName("");
       setRace("");
       setClasses("");
+      setFeature([]);
       setLevel("");
       setBackground("");
       setSavingthrows([]);
@@ -198,6 +201,16 @@ const CreateCharacter = () => {
             );
           })}
         </select>
+      </div>
+      <div>
+        Feature:
+        <textarea
+          // the inventory is stored as an array, and a textarea input field
+          // is used to allow users to input multiple inventory items
+          // separated by line breaks (\n)
+          value={feature.join("\n")}
+          onChange={(e) => setFeature(e.target.value.split("\n"))}
+        />
       </div>
       <div>
         Level:
