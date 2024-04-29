@@ -362,6 +362,16 @@ const CharacterView = () => {
                 />
               </div>
 
+              <div>
+                Hitpoints:
+                <input
+                  type="number"
+                  name="hitpoints"
+                  value={character.hitpoints}
+                  onChange={handleChange}
+                />
+              </div>
+
               <button onClick={handleCancel}>Cancel</button>
             </>
           ) : (
