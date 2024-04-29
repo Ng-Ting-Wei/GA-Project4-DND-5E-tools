@@ -30,25 +30,6 @@ const CharacterDisplay = () => {
     }
   };
 
-  // const viewCharacter = async (characterId) => {
-  //   const res = await fetchData(
-  //     "/api/characters/id",
-  //     "POST",
-  //     {
-  //       _id: characterId,
-  //     },
-  //     userCtx.accessToken
-  //   );
-
-  //   if (res.ok) {
-  //     setCharacterId(characterId);
-  //     navigate("/characterview");
-  //   } else {
-  //     alert(JSON.stringify(res.data));
-  //     console.log(res.data);
-  //   }
-  // };
-
   const deleteCharacter = async (characterId) => {
     const res = await fetchData(
       "/api/characters",
