@@ -9,6 +9,7 @@ const CharacterDisplay = () => {
   const fetchData = useFetch();
   const navigate = useNavigate();
   const userId = userCtx.userById;
+  const { updateCharacterID } = useContext(useInfo);
   const [characters, setCharacters] = useState([]);
 
   const getCharacters = async () => {
@@ -40,6 +41,7 @@ const CharacterDisplay = () => {
     );
 
     if (res.ok) {
+      updateCharacterID(characterId);
       navigate("/characterview");
     } else {
       alert(JSON.stringify(res.data));
