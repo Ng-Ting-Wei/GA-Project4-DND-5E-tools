@@ -19,8 +19,6 @@ const CharacterView = () => {
   const [savingthrowslist, setSavingthrowslist] = useState([]);
   const [skilllist, setSkilllist] = useState([]);
 
-  const [inventory, setInventory] = useState([]);
-
   const getCharacter = async () => {
     try {
       const res = await fetchData(
