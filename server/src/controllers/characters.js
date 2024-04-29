@@ -55,6 +55,7 @@ const addCharacter = async (req, res) => {
       name: req.body.name,
       race: req.body.race,
       class: req.body.classes,
+      feature: req.body.feature,
       level: req.body.level,
       background: req.body.background,
       savingthrows: req.body.savingthrows,
@@ -99,6 +100,7 @@ const updateCharacter = async (req, res) => {
     if ("race" in req.body) updateCharacter.race = req.body.race;
     if ("class" in req.body) updateCharacter.class = req.body.class;
     if ("subclass" in req.body) updateCharacter.subclass = req.body.subclass;
+    if ("feature" in req.body) updateCharacter.feature = req.body.feature;
     if ("level" in req.body) updateCharacter.level = req.body.level;
     if ("proficiencybonus" in req.body)
       updateCharacter.proficiencybonus = req.body.proficiencybonus;
