@@ -363,11 +363,11 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Hitpoints:
+                Maximum Hitpoints:
                 <input
                   type="number"
-                  name="hitpoints"
-                  value={character.hitpoints}
+                  name="maximumhitpoints"
+                  value={character.maximumhitpoints}
                   onChange={handleChange}
                 />
               </div>
