@@ -40,7 +40,7 @@ const CharacterDisplay = () => {
     );
 
     if (res.ok) {
-      // Navigate to the character view page or handle the response as needed
+      navigate("/characterview");
     } else {
       alert(JSON.stringify(res.data));
       console.log(res.data);
