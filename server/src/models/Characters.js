@@ -6,6 +6,7 @@ const CharacterSchema = new mongoose.Schema(
     race: { type: String, require: true },
     class: { type: String, require: true },
     subclass: { type: String },
+    feature: { type: [String] },
     level: { type: Number, default: 1 },
     proficiencybonus: { type: Number, default: 2 },
     background: { type: String, require: true },
