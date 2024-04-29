@@ -391,7 +391,10 @@ const CharacterView = () => {
               <p>Intelligence: {character.intelligence}</p>
               <p>Wisdom: {character.wisdom}</p>
               <p>Charisma: {character.charisma}</p>
-              <p>Hit Points: {character.hitpoints}</p>
+              <p>Maximum Points: {character.maximumhitpoints}</p>
+              <p>
+                Current Points: <input>{character.currenthitpoints}</input>
+              </p>
               <p>Temporary Hit Points: {character.temporaryhitpoints}</p>
               <p>Armor Class: {character.armorclass}</p>
               <p>Inventory: {character.inventory.join(", ")}</p>
