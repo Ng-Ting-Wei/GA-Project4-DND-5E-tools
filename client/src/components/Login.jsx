@@ -8,7 +8,7 @@ const Login = () => {
   const fetchData = useFetch();
   const navigate = useNavigate();
   const userCtx = useContext(userContext);
-  const { setUserInfo, setUserById, setUserRole } = InfoContext();
+  const { setUserInfo, setUserById, setUserRole } = useContext(InfoContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -38,7 +38,7 @@ const Login = () => {
       <br />
       <div>
         <input
-          type="test"
+          type="email"
           className="col-md-4"
           placeholder="email"
           value={email}
