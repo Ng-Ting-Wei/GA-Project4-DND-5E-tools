@@ -2,14 +2,11 @@ import React, { createContext, useState } from "react";
 
 const InfoContext = createContext();
 
-const UserProvider = ({ children }) => {
+const InfoProvider = ({ children }) => {
   const [characterId, setCharacterId] = useState("");
 
-  const updateCharacterID = (newCharacterData) => {
-    setCharacterId((prevCharacterData) => ({
-      ...prevCharacterData,
-      ...newCharacterData,
-    }));
+  const updateCharacterID = (newCharacterId) => {
+    setCharacterId(newCharacterId);
   };
 
   return (
@@ -19,4 +16,4 @@ const UserProvider = ({ children }) => {
   );
 };
 
-export { UserProvider, InfoContext };
+export { InfoProvider, InfoContext };
