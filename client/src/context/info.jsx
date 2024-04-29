@@ -1,52 +1,22 @@
-import React, { useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
-const InfoContext = React.createContext();
+const InfoContext = createContext();
 
-export const InfoProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [token, setToken] = useState("");
-  const [userInfo, setUserInfo] = useState({});
-  const [userById, setUserById] = useState({});
-  const [userRole, setUserRole] = useState({});
+const UserProvider = ({ children }) => {
+  const [characterId, setCharacterId] = useState("");
 
-  const storeToken = (token) => {
-    setToken(token);
+  const updateUser = (newUserData) => {
+    setUser((prevUser) => ({
+      ...prevUser,
+      ...newUserData,
+    }));
   };
 
-  const storeUser = (user) => {
-    setUserInfo(user);
-  };
-
-  const login = (token, user) => {
-    setIsLoggedIn(true);
-    setToken(token);
-    setUserInfo(user);
-  };
-
-  const logout = () => {
-    setIsLoggedIn(false);
-    setToken("");
-    setUserInfo({});
-  };
-
-  const value = {
-    isLoggedIn,
-    token,
-    userInfo,
-    userById,
-    userRole,
-    storeToken,
-    storeUser,
-    login,
-    logout,
-    setUserInfo,
-    setUserById,
-    setUserRole,
-  };
-
-  return <InfoContext.Provider value={value}>{children}</InfoContext.Provider>;
+  return (
+    <InfoContext.Provider value={{ user, updateUser }}>
+      {children}
+    </InfoContext.Provider>
+  );
 };
 
-export const useInfo = () => {
-  return useContext(InfoContext);
-};
+export { UserProvider, InfoContext };
