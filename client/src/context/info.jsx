@@ -6,7 +6,7 @@ const UserProvider = ({ children }) => {
   const [characterId, setCharacterId] = useState("");
 
   const updateCharacterID = (newCharacterData) => {
-    setUser((prevCharacterData) => ({
+    setCharacterId((prevCharacterData) => ({
       ...prevCharacterData,
       ...newCharacterData,
     }));
