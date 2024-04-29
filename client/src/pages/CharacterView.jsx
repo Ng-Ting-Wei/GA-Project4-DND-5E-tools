@@ -36,7 +36,15 @@ const CharacterView = () => {
     getCharacter();
   }, [characterId]);
 
-  return <div>{character.map((item) => {})}</div>;
+  return (
+    <div>
+      {character.map((item) => {
+        <div key={character._id}>
+          <input type="test" value={character.name}></input>
+        </div>;
+      })}
+    </div>
+  );
 };
 
 export default CharacterView;
