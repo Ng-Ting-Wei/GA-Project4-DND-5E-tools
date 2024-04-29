@@ -9,7 +9,7 @@ const CharacterDisplay = () => {
   const fetchData = useFetch();
   const navigate = useNavigate();
   const userId = userCtx.userById;
-  const { updateCharacterID } = useInfo();
+  const { setCharacterId } = useInfo();
   const [characters, setCharacters] = useState([]);
 
   const getCharacters = async () => {
@@ -30,24 +30,24 @@ const CharacterDisplay = () => {
     }
   };
 
-  const viewCharacter = async (characterId) => {
-    const res = await fetchData(
-      "/api/characters/id",
-      "POST",
-      {
-        _id: characterId,
-      },
-      userCtx.accessToken
-    );
+  // const viewCharacter = async (characterId) => {
+  //   const res = await fetchData(
+  //     "/api/characters/id",
+  //     "POST",
+  //     {
+  //       _id: characterId,
+  //     },
+  //     userCtx.accessToken
+  //   );
 
-    if (res.ok) {
-      updateCharacterID(characterId);
-      navigate("/characterview");
-    } else {
-      alert(JSON.stringify(res.data));
-      console.log(res.data);
-    }
-  };
+  //   if (res.ok) {
+  //     setCharacterId(characterId);
+  //     navigate("/characterview");
+  //   } else {
+  //     alert(JSON.stringify(res.data));
+  //     console.log(res.data);
+  //   }
+  // };
 
   const deleteCharacter = async (characterId) => {
     const res = await fetchData(
@@ -79,6 +79,11 @@ const CharacterDisplay = () => {
     navigate("/charactercreation");
   };
 
+  const handleViewCharacter = (characterId) => {
+    setCharacterId(characterId);
+    navigate("/characterview");
+  };
+
   const handleTest = () => {
     console.log(characters);
   };
@@ -101,13 +106,10 @@ const CharacterDisplay = () => {
               {/* // Convert to local time in a readable format */}
               Date Created: {new Date(item.created_at).toLocaleString()}
             </span>
-            <span style={{ marginLeft: "10px" }}>
-              {/* // Convert to local time in a readable format */}
-              Character id: {item._id}
-            </span>
+            <span style={{ marginLeft: "10px" }}>Character id: {item._id}</span>
             <button
               className="col-md-2"
-              onClick={() => viewCharacter(item._id)}
+              onClick={() => handleViewCharacter(item._id)}
             >
               View Character
             </button>

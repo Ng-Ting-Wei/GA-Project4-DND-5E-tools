@@ -30,10 +30,6 @@ export const InfoProvider = ({ children }) => {
     setUserInfo({});
   };
 
-  const updateCharacterID = (newCharacterId) => {
-    setCharacterId(newCharacterId);
-  };
-
   const value = {
     isLoggedIn,
     token,
@@ -48,7 +44,7 @@ export const InfoProvider = ({ children }) => {
     setUserInfo,
     setUserById,
     setUserRole,
-    updateCharacterID,
+    setCharacterId,
   };
 
   return <InfoContext.Provider value={value}>{children}</InfoContext.Provider>;
