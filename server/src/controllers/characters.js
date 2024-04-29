@@ -98,7 +98,10 @@ const updateCharacter = async (req, res) => {
     if ("name" in req.body) updateCharacter.name = req.body.name;
     if ("race" in req.body) updateCharacter.race = req.body.race;
     if ("class" in req.body) updateCharacter.class = req.body.class;
+    if ("subclass" in req.body) updateCharacter.subclass = req.body.subclass;
     if ("level" in req.body) updateCharacter.level = req.body.level;
+    if ("proficiencybonus" in req.body)
+      updateCharacter.proficiencybonus = req.body.proficiencybonus;
     if ("background" in req.body)
       updateCharacter.background = req.body.background;
     if ("savingthrows" in req.body)
