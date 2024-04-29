@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import UserContext from "../context/user";
 
@@ -7,7 +7,6 @@ const CharacterView = () => {
   const userCtx = useContext(UserContext);
   const fetchData = useFetch();
   const navigate = useNavigate();
-  const [characterDetail, setCharacterDetail] = useState(null);
 
   const getCharacter = async () => {
     try {
