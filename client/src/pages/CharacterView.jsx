@@ -18,14 +18,7 @@ const CharacterView = () => {
   const [backgroundlist, setBackgroundlist] = useState([]);
   const [savingthrowslist, setSavingthrowslist] = useState([]);
   const [skilllist, setSkilllist] = useState([]);
-  const [strength, setStrength] = useState("");
-  const [dexterity, setDexterity] = useState("");
-  const [constitution, setConsitution] = useState("");
-  const [intelligence, setIntelligence] = useState("");
-  const [wisdom, setWisdom] = useState("");
-  const [charisma, setCharisma] = useState("");
-  const [hitpoints, setHitpoints] = useState("");
-  const [armorclass, setArmorclass] = useState("");
+
   const [inventory, setInventory] = useState([]);
 
   const getCharacter = async () => {
@@ -155,7 +148,7 @@ const CharacterView = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === "feature") {
+    if (name === "feature" || name === "inventory") {
       // Split the textarea value by newline to convert it into an array
       const featureArray = value.split("\n");
       setCharacter((prevCharacter) => ({
@@ -169,6 +162,25 @@ const CharacterView = () => {
         [name]: value,
       }));
     }
+  };
+
+  const handleSavingthrow = (item) => {
+    setCharacter((prevCharacter) => {
+      if (prevCharacter.savingthrows.includes(item.savingthrow)) {
+        // Remove the item from the array
+        const updatedSavingthrows = prevCharacter.savingthrows.filter(
+          (savingthrow) => savingthrow !== item.savingthrow
+        );
+        return { ...prevCharacter, savingthrows: updatedSavingthrows };
+      } else {
+        // Add the item to the array
+        const updatedSavingthrows = [
+          ...prevCharacter.savingthrows,
+          item.savingthrow,
+        ];
+        return { ...prevCharacter, savingthrows: updatedSavingthrows };
+      }
+    });
   };
 
   // Reset the character state to its original values
@@ -286,7 +298,9 @@ const CharacterView = () => {
                       checked={character.savingthrows.includes(
                         item.savingthrow
                       )}
-                      onChange={handleChange}
+                      onChange={() => {
+                        handleSavingthrow(item);
+                      }}
                     />
                     {item.savingthrow}
                   </label>
@@ -344,7 +358,7 @@ const CharacterView = () => {
                 />
               </div>
               <div>
-                Wsdom:
+                Wisdom:
                 <input
                   type="number"
                   name="wisdom"
@@ -372,6 +386,45 @@ const CharacterView = () => {
                 />
               </div>
 
+              <div>
+                Current Hitpoints:
+                <input
+                  type="number"
+                  name="currenthitpoints"
+                  value={character.currenthitpoints}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div>
+                Temporary Hitpoints:
+                <input
+                  type="number"
+                  name="temporaryhitpoints"
+                  value={character.temporaryhitpoints}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div>
+                Armorclass:
+                <input
+                  type="number"
+                  name="armorclass"
+                  value={character.armorclass}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div>
+                Inventory:
+                <textarea
+                  value={character.inventory}
+                  name="inventory"
+                  onChange={handleChange}
+                />
+              </div>
+
               <button onClick={handleCancel}>Cancel</button>
             </>
           ) : (
@@ -392,9 +445,7 @@ const CharacterView = () => {
               <p>Wisdom: {character.wisdom}</p>
               <p>Charisma: {character.charisma}</p>
               <p>Maximum Points: {character.maximumhitpoints}</p>
-              <p>
-                Current Points: <input>{character.currenthitpoints}</input>
-              </p>
+              <p>Current Points: {character.currenthitpoints}</p>
               <p>Temporary Hit Points: {character.temporaryhitpoints}</p>
               <p>Armor Class: {character.armorclass}</p>
               <p>Inventory: {character.inventory.join(", ")}</p>
