@@ -21,7 +21,7 @@ const CharacterView = () => {
         userCtx.accessToken
       );
       if (res.ok) {
-        setCharacter(res.data);
+        setCharacter(res.data.data);
       } else {
         console.error("Error fetching character:", res.data);
       }
