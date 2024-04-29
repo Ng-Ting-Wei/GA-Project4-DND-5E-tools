@@ -183,6 +183,24 @@ const CharacterView = () => {
     });
   };
 
+  const handleSkills = (item) => {
+    setCharacter((prevCharacter) => {
+      if (prevCharacter.skill.includes(item.skill)) {
+        // Remove the item from the array
+        return {
+          ...prevCharacter,
+          skill: prevCharacter.skill.filter((skill) => skill !== item.skill),
+        };
+      } else {
+        // Add the item to the array
+        return {
+          ...prevCharacter,
+          skill: [...prevCharacter.skill, item.skill],
+        };
+      }
+    });
+  };
+
   // Reset the character state to its original values
   const handleCancel = () => {
     getCharacter();
@@ -314,7 +332,9 @@ const CharacterView = () => {
                     <input
                       type="checkbox"
                       checked={character.skill.includes(item.skill)}
-                      onChange={handleChange}
+                      onChange={() => {
+                        handleSkills(item);
+                      }}
                     />
                     {item.skill}
                   </label>
