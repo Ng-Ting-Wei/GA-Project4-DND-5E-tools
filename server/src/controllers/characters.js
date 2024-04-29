@@ -66,7 +66,8 @@ const addCharacter = async (req, res) => {
       intelligence: req.body.intelligence,
       wisdom: req.body.wisdom,
       charisma: req.body.charisma,
-      hitpoints: req.body.hitpoints,
+      maximumhitpoints: req.body.maximumhitpoints,
+      currenthitpoints: req.body.currenthitpoints,
       temporaryhitpoints: req.body.temporaryhitpoints,
       armorclass: req.body.armorclass,
       inventory: req.body.inventory,
@@ -117,7 +118,10 @@ const updateCharacter = async (req, res) => {
       updateCharacter.intelligence = req.body.intelligence;
     if ("wisdom" in req.body) updateCharacter.wisdom = req.body.wisdom;
     if ("charisma" in req.body) updateCharacter.charisma = req.body.charisma;
-    if ("hitpoints" in req.body) updateCharacter.hitpoints = req.body.hitpoints;
+    if ("maximumhitpoints" in req.body)
+      updateCharacter.maximumhitpoints = req.body.maximumhitpoints;
+    if ("currenthitpoints" in req.body)
+      updateCharacter.currenthitpoints = req.body.currenthitpoints;
     if ("temporaryhitpoints" in req.body)
       updateCharacter.temporaryhitpoints = req.body.temporaryhitpoints;
     if ("armorclass" in req.body)
