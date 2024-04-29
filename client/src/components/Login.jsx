@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import userContext from "../context/user";
-import { InfoContext } from "../context/info";
+import { useInfo } from "../context/info";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const fetchData = useFetch();
   const navigate = useNavigate();
   const userCtx = useContext(userContext);
-  const { setUserInfo, setUserById, setUserRole } = useContext(InfoContext);
+  const { setUserInfo, setUserById, setUserRole } = useInfo();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

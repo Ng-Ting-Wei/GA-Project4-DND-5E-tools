@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 
-const InfoContext = createContext();
+const InfoContext = React.createContext();
 
 export const InfoProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

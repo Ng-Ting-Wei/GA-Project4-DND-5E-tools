@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import UserContext from "../context/user";
-import { InfoContext } from "../context/info";
+import { useInfo } from "../context/info";
 import { useNavigate } from "react-router-dom";
 
 const CharacterDisplay = () => {
@@ -9,7 +9,7 @@ const CharacterDisplay = () => {
   const fetchData = useFetch();
   const navigate = useNavigate();
   const userId = userCtx.userById;
-  const { updateCharacterID } = useContext(InfoContext);
+  const { updateCharacterID } = useInfo();
   const [characters, setCharacters] = useState([]);
 
   const getCharacters = async () => {
