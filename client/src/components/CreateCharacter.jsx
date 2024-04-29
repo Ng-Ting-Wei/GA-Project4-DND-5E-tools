@@ -27,7 +27,8 @@ const CreateCharacter = () => {
   const [intelligence, setIntelligence] = useState("");
   const [wisdom, setWisdom] = useState("");
   const [charisma, setCharisma] = useState("");
-  const [hitpoints, setHitpoints] = useState("");
+  const [maximumhitpoints, setMaximumHitpoints] = useState("");
+  const [currentHitpoints, setCurrentHitpoints] = useState("");
   const [armorclass, setArmorclass] = useState("");
   const [inventory, setInventory] = useState([]);
 
@@ -95,7 +96,8 @@ const CreateCharacter = () => {
         intelligence: intelligence,
         wisdom: wisdom,
         charisma: charisma,
-        hitpoints: hitpoints,
+        maximumhitpoints: maximumhitpoints,
+        currenthitpoints: currentHitpoints,
         armorclass: armorclass,
         inventory: inventory,
         player: userId,
@@ -117,7 +119,8 @@ const CreateCharacter = () => {
       setIntelligence("");
       setWisdom("");
       setCharisma("");
-      setHitpoints("");
+      setMaximumHitpoints("");
+      setCurrentHitpoints("");
       setArmorclass("");
       setInventory([]);
     } else {
@@ -343,11 +346,19 @@ const CreateCharacter = () => {
         ></input>
       </div>
       <div>
-        Hit points:
+        Maximum Hitpoints:
         <input
           type="number"
-          value={hitpoints}
-          onChange={(e) => setHitpoints(parseInt(e.target.value))}
+          value={maximumhitpoints}
+          onChange={(e) => setMaximumHitpoints(parseInt(e.target.value))}
+        ></input>
+      </div>
+      <div>
+        Current Hitpoints:
+        <input
+          type="number"
+          value={currentHitpoints}
+          onChange={(e) => setCurrentHitpoints(parseInt(e.target.value))}
         ></input>
       </div>
       <div>
