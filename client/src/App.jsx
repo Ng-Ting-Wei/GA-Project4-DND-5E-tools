@@ -4,6 +4,7 @@ import Player from "./pages/Player";
 import DungeonMaster from "./pages/DungeonMaster";
 import Register from "./pages/Register";
 import CharacterCreation from "./pages/CharacterCreation";
+import CharacterView from "./pages/CharacterView";
 import NotFound from "./pages/NotFound";
 import UserContext from "./context/user";
 import { Navigate, Route, Routes } from "react-router-dom";
@@ -34,7 +35,8 @@ function App() {
           <Route
             path="charactercreation"
             element={<CharacterCreation />}
-          ></Route>
+          ></Route>{" "}
+          <Route path="characterview" element={<CharacterView />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </UserContext.Provider>
