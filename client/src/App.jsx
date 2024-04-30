@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import CharacterCreation from "./pages/CharacterCreation";
 import CharacterView from "./pages/CharacterView";
 import NPCsCreation from "./pages/NPCsCreation";
+import NPCsView from "./pages/NPCsView";
 import NotFound from "./pages/NotFound";
 import UserContext from "./context/user";
 import { Navigate, Route, Routes } from "react-router-dom";
@@ -39,6 +40,7 @@ function App() {
           ></Route>
           <Route path="characterview" element={<CharacterView />}></Route>
           <Route path="npcscreation" element={<NPCsCreation />}></Route>
+          <Route path="npcsview" element={<NPCsView />}></Route>
 
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
