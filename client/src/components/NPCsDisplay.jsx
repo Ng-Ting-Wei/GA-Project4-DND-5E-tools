@@ -54,12 +54,12 @@ const NPCsDisplay = () => {
   }, []);
 
   const handleCreateNPC = () => {
-    navigate("/charactercreation");
+    navigate("/npcscreation");
   };
 
   const handleViewNPC = (npcid) => {
     // setCharacterId(npcid);
-    navigate("/characterview");
+    navigate("/npcsview");
   };
 
   const handleLogout = () => {
@@ -81,6 +81,8 @@ const NPCsDisplay = () => {
       </div>
       <button onClick={handleLogout}>Logout</button>
 
+      <button onClick={handleCreateNPC}>Create NPC</button>
+
       {npcs.map((item) => (
         <div key={item._id} style={{ marginBottom: "10px" }}>
           <div>
@@ -91,7 +93,14 @@ const NPCsDisplay = () => {
               Date Created: {new Date(item.created_at).toLocaleString()}
             </span>
             <span style={{ marginLeft: "10px" }}>NPC id: {item._id}</span>
-            <button className="col-md-2">View NPC</button>
+            <button
+              className="col-md-2"
+              onClick={() => {
+                handleViewNPC(item._id);
+              }}
+            >
+              View NPC
+            </button>
             <button className="col-md-2" onClick={() => deleteNPCs(item._id)}>
               Delete NPC
             </button>
