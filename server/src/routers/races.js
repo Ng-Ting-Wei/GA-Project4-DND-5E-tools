@@ -2,10 +2,9 @@ const express = require("express");
 const router = express.Router();
 
 const { getAllRacelist, addRace } = require("../controllers/races");
-const { errorCheck } = require("../validators/errorCheck");
-const auth = require("../middleware/users");
+const { auth } = require("../middleware/users");
 
-router.get("/racelist", errorCheck, getAllRacelist);
-router.put("/racelist", errorCheck, addRace);
+router.get("/racelist", auth, getAllRacelist);
+router.put("/racelist", auth, addRace);
 
 module.exports = router;
