@@ -1,15 +1,15 @@
-import React, { useState, useContext, useEffect } from "react";
-import { useInfo } from "../context/info";
+import React, { useContext } from "react";
 import UserContext from "../context/user";
-import useFetch from "../hooks/useFetch";
 import NavBar from "../components/NavBar";
+import NPCsDisplay from "../components/NPCsDisplay";
 
 const DungeonMaster = () => {
   const userCtx = useContext(UserContext);
 
   return (
     <div>
-      <NavBar></NavBar>
+      {userCtx.userRole === "DungeonMaster" && <NavBar />}
+      {userCtx.userRole === "DungeonMaster" && <NPCsDisplay />}
     </div>
   );
 };
