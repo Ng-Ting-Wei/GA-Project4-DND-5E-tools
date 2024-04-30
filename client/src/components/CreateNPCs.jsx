@@ -110,14 +110,7 @@ const CreateNPCs = () => {
           (savingthrow) => savingthrow !== item.savingthrow
         );
       } else {
-        // Add the item to the array, but only if there are less than
-        // two selected item
-        if (prevSavingthrows.length < 2) {
-          return [...prevSavingthrows, item.savingthrow];
-        } else {
-          // Should have no change if already have two selected
-          return prevSavingthrows;
-        }
+        return [...prevSavingthrows, item.savingthrow];
       }
     });
   };
@@ -193,10 +186,6 @@ const CreateNPCs = () => {
               type="checkbox"
               checked={savingthrows.includes(item.savingthrow)}
               onChange={() => toggleSavingthrow(item)}
-              disabled={
-                savingthrows.length === 2 &&
-                !savingthrows.includes(item.savingthrow)
-              }
             />
             {item.savingthrow}
           </label>
