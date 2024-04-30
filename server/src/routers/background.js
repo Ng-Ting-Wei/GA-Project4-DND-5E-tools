@@ -1,14 +1,14 @@
 const express = require("express");
-const router = express.Router();
 
 const {
   getAllBackgroundlist,
   addBackground,
 } = require("../controllers/background");
-const { errorCheck } = require("../validators/errorCheck");
-const auth = require("../middleware/users");
+const { auth } = require("../middleware/users");
 
-router.get("/backgroundlist", errorCheck, getAllBackgroundlist);
-router.put("/backgroundlist", errorCheck, addBackground);
+const router = express.Router();
+
+router.get("/backgroundlist", auth, getAllBackgroundlist);
+router.put("/backgroundlist", auth, addBackground);
 
 module.exports = router;
