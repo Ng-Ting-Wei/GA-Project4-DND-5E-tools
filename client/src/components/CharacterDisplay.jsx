@@ -9,8 +9,25 @@ const CharacterDisplay = () => {
   const fetchData = useFetch();
   const navigate = useNavigate();
   const userId = userCtx.userById;
-  const { setUserInfo, setUserById, setUserRole, setCharacterId } = useInfo();
+  const { setUserInfo, setUserById, setUserRole, setCharacterId, userRole } =
+    useInfo();
   const [characters, setCharacters] = useState([]);
+
+  const getAllCharacters = async () => {
+    const res = await fetchData(
+      "/api/characters",
+      "GET",
+      undefined,
+      userCtx.accessToken
+    );
+
+    if (res.ok) {
+      setCharacters(res.data.data);
+    } else {
+      alert(JSON.stringify(res.data));
+      console.log(res.data);
+    }
+  };
 
   const getCharacters = async () => {
     const res = await fetchData(
@@ -27,6 +44,14 @@ const CharacterDisplay = () => {
     } else {
       alert(JSON.stringify(res.data));
       console.log(res.data);
+    }
+  };
+
+  const fetchUserCharacters = async () => {
+    if (userCtx.userRole === "DungeonMaster") {
+      await getAllCharacters();
+    } else {
+      await getCharacters();
     }
   };
 
@@ -53,8 +78,8 @@ const CharacterDisplay = () => {
   };
 
   useEffect(() => {
-    getCharacters();
-  }, []);
+    fetchUserCharacters();
+  }, [userRole]);
 
   const handleCreateCharacter = () => {
     navigate("/charactercreation");
@@ -68,6 +93,7 @@ const CharacterDisplay = () => {
   const handleLogout = () => {
     userCtx.setAccessToken("");
     userCtx.setUserById("");
+    userCtx.setUserRole("");
     userCtx.setUserRole("");
 
     setUserInfo("");
