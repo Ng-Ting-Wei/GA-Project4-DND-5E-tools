@@ -12,7 +12,7 @@ const {
 const { errorCheck } = require("../validators/errorCheck");
 const { auth } = require("../middleware/users");
 
-router.get("/classlist", getAllClasslist);
+router.get("/classlist", auth, getAllClasslist);
 router.put("/classlist", auth, checkClasslistInput, errorCheck, addClasses);
 router.post(
   "/classlist",

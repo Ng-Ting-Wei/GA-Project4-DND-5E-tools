@@ -5,10 +5,17 @@ const {
   getAllSavingthrowlist,
   addSavingthrow,
 } = require("../controllers/savingthrows");
+const { checkSavingthrowlistInput } = require("../validators/savingthrow");
 const { errorCheck } = require("../validators/errorCheck");
-const auth = require("../middleware/users");
+const { auth } = require("../middleware/users");
 
-router.get("/savingthrowlist", errorCheck, getAllSavingthrowlist);
-router.put("/savingthrowlist", errorCheck, addSavingthrow);
+router.get("/savingthrowlist", auth, getAllSavingthrowlist);
+router.put(
+  "/savingthrowlist",
+  auth,
+  checkSavingthrowlistInput,
+  errorCheck,
+  addSavingthrow
+);
 
 module.exports = router;

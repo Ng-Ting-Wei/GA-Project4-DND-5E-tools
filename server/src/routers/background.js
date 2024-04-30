@@ -9,13 +9,7 @@ const { checkBackgroundlistInput } = require("../validators/background");
 const { errorCheck } = require("../validators/errorCheck");
 const { auth } = require("../middleware/users");
 
-router.get(
-  "/backgroundlist",
-  auth,
-  checkBackgroundlistInput,
-  errorCheck,
-  getAllBackgroundlist
-);
-router.put("/backgroundlist", auth, addBackground);
+router.get("/backgroundlist", auth, errorCheck, getAllBackgroundlist);
+router.put("/backgroundlist", auth, checkBackgroundlistInput, addBackground);
 
 module.exports = router;

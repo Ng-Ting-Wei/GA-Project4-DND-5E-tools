@@ -1,4 +1,6 @@
 const express = require("express");
+const router = express.Router();
+
 const {
   getAllCharacters,
   getCharacterById,
@@ -13,7 +15,6 @@ const {
   checkUpdateCharacterinput,
 } = require("../validators/characters");
 const { auth } = require("../middleware/users");
-const router = express.Router();
 
 router.get("/characters", auth, getAllCharacters);
 router.post("/characters/id", auth, getCharacterById);

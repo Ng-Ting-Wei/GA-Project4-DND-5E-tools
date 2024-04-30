@@ -1,4 +1,6 @@
 const express = require("express");
+const router = express.Router();
+
 const {
   getAllNPCs,
   getNPCsById,
@@ -7,7 +9,7 @@ const {
   updateNPC,
   deleteNPC,
 } = require("../controllers/npcs");
-const router = express.Router();
+const { auth } = require("../middleware/users");
 
 router.get("/npcs", getAllNPCs);
 router.post("/npcs/id", getNPCsById);
