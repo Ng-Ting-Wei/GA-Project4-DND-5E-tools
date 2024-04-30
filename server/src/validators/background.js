@@ -9,11 +9,4 @@ const checkBackgroundlistInput = [
   body("details", "details is required").not().isEmpty(),
 ];
 
-const checkBackgroundByName = [
-  body("background", "background is required").not().isEmpty(),
-  body("background", "background is first letter must be uppercase")
-    .not()
-    .isLowercase(),
-];
-
-module.exports = { checkBackgroundlistInput, checkBackgroundByName };
+module.exports = { checkBackgroundlistInput };

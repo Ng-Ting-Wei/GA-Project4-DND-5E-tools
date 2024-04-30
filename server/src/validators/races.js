@@ -9,9 +9,4 @@ const checkRacelistInput = [
   body("details", "details is required").not().isEmpty(),
 ];
 
-const checkRaceByName = [
-  body("race", "race is required").not().isEmpty(),
-  body("race", "race is first letter must be uppercase").not().isLowercase(),
-];
-
-module.exports = { checkRacelistInput, checkRaceByName };
+module.exports = { checkRacelistInput };
