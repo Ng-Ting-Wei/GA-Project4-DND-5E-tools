@@ -108,7 +108,7 @@ const CharacterView = () => {
           wisdom: character.wisdom,
           charisma: character.charisma,
           maximumhitpoints: character.maximumhitpoints,
-          currenthitpoints: character.currentHitpoints,
+          currenthitpoints: character.currenthitpoints,
           temporaryhitpoints: character.temporaryhitpoints,
           armorclass: character.armorclass,
           inventory: character.inventory,
