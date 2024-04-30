@@ -61,7 +61,7 @@ const NPCsDisplay = () => {
       </div>
       <button onClick={handleLogout}>Logout</button>
 
-      {characters.map((item) => (
+      {npcs.map((item) => (
         <div key={item._id} style={{ marginBottom: "10px" }}>
           <div>
             <span>Name: {item.name}</span>
