@@ -13,7 +13,71 @@ const NPCsDisplay = () => {
     useInfo();
   const [npcs, setNPCs] = useState([]);
 
-  return <div></div>;
+  const getAllNPCs = async () => {
+    const res = await fetchData(
+      "/api/npcs",
+      "GET",
+      undefined,
+      userCtx.accessToken
+    );
+
+    if (res.ok) {
+      setNPCs(res.data.data);
+    } else {
+      alert(JSON.stringify(res.data));
+      console.log(res.data);
+    }
+  };
+
+  useEffect(() => {
+    getAllNPCs();
+  }, []);
+
+  const handleCreateNPC = () => {
+    navigate("/charactercreation");
+  };
+
+  const handleViewNPC = (npcid) => {
+    // setCharacterId(npcid);
+    navigate("/characterview");
+  };
+
+  const handleLogout = () => {
+    userCtx.setAccessToken("");
+    userCtx.setUserById("");
+    userCtx.setUserRole("");
+    userCtx.setUserRole("");
+
+    setUserInfo("");
+    setUserById("");
+    setUserRole("");
+    navigate("/login");
+  };
+
+  return (
+    <div>
+      <div className="row">
+        <div className="col-md-3">NPCs</div>
+      </div>
+      <button onClick={handleLogout}>Logout</button>
+
+      {characters.map((item) => (
+        <div key={item._id} style={{ marginBottom: "10px" }}>
+          <div>
+            <span>Name: {item.name}</span>
+            <span style={{ marginLeft: "10px" }}>Race: {item.race}</span>
+            <span style={{ marginLeft: "10px" }}>
+              {/* // Convert to local time in a readable format */}
+              Date Created: {new Date(item.created_at).toLocaleString()}
+            </span>
+            <span style={{ marginLeft: "10px" }}>NPC id: {item._id}</span>
+            <button className="col-md-2">View NPC</button>
+            <button className="col-md-2">Delete NPC</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default NPCsDisplay;
