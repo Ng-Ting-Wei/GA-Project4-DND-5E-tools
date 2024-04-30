@@ -85,7 +85,6 @@ const NPCsView = () => {
           charisma: npc.charisma,
           maximumhitpoints: npc.maximumhitpoints,
           currenthitpoints: npc.currenthitpoints,
-          temporaryhitpoints: npc.temporaryhitpoints,
           armorclass: npc.armorclass,
           player: userId,
         },
@@ -337,16 +336,6 @@ const NPCsView = () => {
               </div>
 
               <div>
-                Temporary Hitpoints:
-                <input
-                  type="number"
-                  name="temporaryhitpoints"
-                  value={npc.temporaryhitpoints}
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div>
                 Armorclass:
                 <input
                   type="number"
@@ -379,15 +368,6 @@ const NPCsView = () => {
                   type="number"
                   name="currenthitpoints"
                   value={npc.currenthitpoints}
-                  onChange={handleChange}
-                />
-              </p>
-              <p>
-                Temporary Hit Points:
-                <input
-                  type="number"
-                  name="temporaryhitpoints"
-                  value={npc.temporaryhitpoints}
                   onChange={handleChange}
                 />
               </p>
