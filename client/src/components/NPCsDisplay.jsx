@@ -29,6 +29,26 @@ const NPCsDisplay = () => {
     }
   };
 
+  const deleteNPCs = async (npcsId) => {
+    const res = await fetchData(
+      "/api/npcs",
+      "DELETE",
+      {
+        _id: userId,
+        npcs: npcsId,
+      },
+      userCtx.accessToken
+    );
+
+    if (res.ok) {
+      setNPCs((prevNPCs) => prevNPCs.filter((npcs) => npcs._id !== npcsId));
+      console.log("NPCs deleted");
+    } else {
+      alert(JSON.stringify(res.data));
+      console.log(res.data);
+    }
+  };
+
   useEffect(() => {
     getAllNPCs();
   }, []);
@@ -72,7 +92,9 @@ const NPCsDisplay = () => {
             </span>
             <span style={{ marginLeft: "10px" }}>NPC id: {item._id}</span>
             <button className="col-md-2">View NPC</button>
-            <button className="col-md-2">Delete NPC</button>
+            <button className="col-md-2" onClick={() => deleteNPCs(item._id)}>
+              Delete NPC
+            </button>
           </div>
         </div>
       ))}
