@@ -206,6 +206,7 @@ const CharacterView = () => {
   };
 
   const handleGoCharacterList = () => {
+    updateCharacter();
     navigate("/player");
   };
 
@@ -463,10 +464,41 @@ const CharacterView = () => {
               <p>Wisdom: {character.wisdom}</p>
               <p>Charisma: {character.charisma}</p>
               <p>Maximum Points: {character.maximumhitpoints}</p>
-              <p>Current Points: {character.currenthitpoints}</p>
-              <p>Temporary Hit Points: {character.temporaryhitpoints}</p>
-              <p>Armor Class: {character.armorclass}</p>
-              <p>Inventory: {character.inventory.join(", ")}</p>
+              <p>
+                Current Points:
+                <input
+                  type="number"
+                  name="currenthitpoints"
+                  value={character.currenthitpoints}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                Temporary Hit Points:
+                <input
+                  type="number"
+                  name="temporaryhitpoints"
+                  value={character.temporaryhitpoints}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                Armor Class:
+                <input
+                  type="number"
+                  name="armorclass"
+                  value={character.armorclass}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                Inventory: {character.inventory.join(", ")}
+                <textarea
+                  value={character.inventory}
+                  name="inventory"
+                  onChange={handleChange}
+                />
+              </p>
               <p>Player: {character.player}</p>
               <p>
                 Created At: {new Date(character.created_at).toLocaleString()}
