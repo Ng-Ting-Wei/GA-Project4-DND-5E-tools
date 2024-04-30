@@ -14,6 +14,7 @@ const savingthrow = require("./src/routers/savingthrows");
 const skills = require("./src/routers/skills");
 const roles = require("./src/routers/roles");
 const character = require("./src/routers/characters");
+const npc = require("./src/routers/npcs");
 
 connectDB();
 
@@ -41,6 +42,7 @@ app.use("/api", races);
 app.use("/api", backgrounds);
 app.use("/api", savingthrow);
 app.use("/api", skills);
+app.use("/api", npc);
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
