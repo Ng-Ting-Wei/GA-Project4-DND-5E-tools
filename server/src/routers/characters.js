@@ -12,18 +12,26 @@ const {
   checkAddCharacterInput,
   checkUpdateCharacterinput,
 } = require("../validators/characters");
+const { auth } = require("../middleware/users");
 const router = express.Router();
 
-router.get("/characters", getAllCharacters);
-router.post("/characters/id", getCharacterById);
-router.post("/characters/player", getCharacterByPlayer);
-router.put("/characters", checkAddCharacterInput, errorCheck, addCharacter);
+router.get("/characters", auth, getAllCharacters);
+router.post("/characters/id", auth, getCharacterById);
+router.post("/characters/player", auth, getCharacterByPlayer);
+router.put(
+  "/characters",
+  auth,
+  checkAddCharacterInput,
+  errorCheck,
+  addCharacter
+);
 router.patch(
   "/characters",
+  auth,
   checkUpdateCharacterinput,
   errorCheck,
   updateCharacter
 );
-router.delete("/characters", deleteCharacter);
+router.delete("/characters", auth, deleteCharacter);
 
 module.exports = router;
