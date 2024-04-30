@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import UserContext from "../context/user";
 import { useNavigate } from "react-router-dom";
+import { useInfo } from "../context/info";
 
 const CreateCharacter = () => {
   const userCtx = useContext(UserContext);

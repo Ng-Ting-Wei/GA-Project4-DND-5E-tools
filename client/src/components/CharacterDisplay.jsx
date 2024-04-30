@@ -9,7 +9,7 @@ const CharacterDisplay = () => {
   const fetchData = useFetch();
   const navigate = useNavigate();
   const userId = userCtx.userById;
-  const { setCharacterId } = useInfo();
+  const { setUserInfo, setUserById, setUserRole, setCharacterId } = useInfo();
   const [characters, setCharacters] = useState([]);
 
   const getCharacters = async () => {
@@ -65,6 +65,17 @@ const CharacterDisplay = () => {
     navigate("/characterview");
   };
 
+  const handleLogout = () => {
+    userCtx.setAccessToken("");
+    userCtx.setUserById("");
+    userCtx.setUserRole("");
+
+    setUserInfo("");
+    setUserById("");
+    setUserRole("");
+    navigate("/login");
+  };
+
   const handleTest = () => {
     console.log(characters);
   };
@@ -74,6 +85,8 @@ const CharacterDisplay = () => {
       <div className="row">
         <div className="col-md-3">Characters</div>
       </div>
+      <button onClick={handleLogout}>Logout</button>
+
       <button onClick={handleCreateCharacter}>Create Character</button>
 
       {characters.map((item) => (
