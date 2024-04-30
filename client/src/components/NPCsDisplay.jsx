@@ -9,8 +9,7 @@ const NPCsDisplay = () => {
   const fetchData = useFetch();
   const navigate = useNavigate();
   const userId = userCtx.userById;
-  const { setUserInfo, setUserById, setUserRole, setCharacterId, userRole } =
-    useInfo();
+  const { setUserInfo, setUserById, setUserRole, setNPCId } = useInfo();
   const [npcs, setNPCs] = useState([]);
 
   const getAllNPCs = async () => {
@@ -58,7 +57,7 @@ const NPCsDisplay = () => {
   };
 
   const handleViewNPC = (npcid) => {
-    // setCharacterId(npcid);
+    setNPCId(npcid);
     navigate("/npcsview");
   };
 
