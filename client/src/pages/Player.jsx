@@ -10,7 +10,6 @@ const Player = () => {
     <div>
       {userCtx.userRole === "DungeonMaster" && <NavBar />}
       <CharacterDisplay></CharacterDisplay>
-      {/* <button onClick={handleTest}>Test Button</button> */}
     </div>
   );
 };
