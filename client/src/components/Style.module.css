@@ -63,9 +63,16 @@
 .textbigtext {
   font-size: xx-large;
 }
+.textslightbigtext {
+  font-size: x-large;
+}
 .textareainput {
   width: 50%;
   height: 200px;
+}
+.textareadisplay {
+  width: 100%;
+  height: 100%;
 }
 .inputarea {
   width: 20%;
@@ -88,5 +95,17 @@
   width: 100%;
 }
 .buttonsoncreate {
+  padding: 12px 12px;
+}
+.savebutton {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  padding: 12px 18px;
+}
+.buttonsoncreate2 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
   padding: 12px 12px;
 }

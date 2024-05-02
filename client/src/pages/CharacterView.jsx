@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import UserContext from "../context/user";
 import { useInfo } from "../context/info";
+import styles from "../components/Style.module.css";
 
 const CharacterView = () => {
   const userCtx = useContext(UserContext);
@@ -239,11 +240,11 @@ const CharacterView = () => {
   return (
     <div>
       {character && (
-        <div>
+        <div className={styles.charactercreate}>
           {isEditing ? (
             <>
               <div>
-                Name:
+                <div className={styles.textbigtext}>Name:</div>
                 <input
                   type="text"
                   name="name"
@@ -253,7 +254,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Race:
+                <div className={styles.textbigtext}>Race:</div>
                 <select
                   name="race"
                   value={character.race}
@@ -270,7 +271,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Class:
+                <div className={styles.textbigtext}>Class:</div>
                 <select
                   name="class"
                   value={character.class}
@@ -287,8 +288,9 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Feature:
+                <div className={styles.textbigtext}>Feature:</div>
                 <textarea
+                  className={styles.textareainput}
                   value={character.feature}
                   name="feature"
                   onChange={handleChange}
@@ -296,7 +298,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Level:
+                <div className={styles.textbigtext}>Level:</div>
                 <input
                   type="number"
                   name="level"
@@ -306,7 +308,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Proficiency Bonus:
+                <div className={styles.textbigtext}>Proficiency Bonus:</div>
                 <input
                   type="number"
                   name="proficiencybonus"
@@ -316,7 +318,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Background:
+                <div className={styles.textbigtext}>Background:</div>
                 <select
                   name="background"
                   value={character.background}
@@ -333,9 +335,9 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Savingthrows:
+                <div className={styles.textbigtext}>Savingthrows:</div>
                 {savingthrowslist.map((item, index) => (
-                  <label key={index}>
+                  <label className={styles.savingthrowselect} key={index}>
                     <input
                       type="checkbox"
                       checked={character.savingthrows.includes(
@@ -351,23 +353,25 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Skills:
-                {skilllist.map((item, index) => (
-                  <label key={index}>
-                    <input
-                      type="checkbox"
-                      checked={character.skill.includes(item.skill)}
-                      onChange={() => {
-                        handleSkills(item);
-                      }}
-                    />
-                    {item.skill}
-                  </label>
-                ))}
+                <div className={styles.textbigtext}>Skills:</div>
+                {skilllist
+                  .sort((a, b) => a.skill.localeCompare(b.skill))
+                  .map((item, index) => (
+                    <label className={styles.skillselect} key={index}>
+                      <input
+                        type="checkbox"
+                        checked={character.skill.includes(item.skill)}
+                        onChange={() => {
+                          handleSkills(item);
+                        }}
+                      />
+                      {item.skill}
+                    </label>
+                  ))}
               </div>
 
               <div>
-                Strength:
+                <div className={styles.textbigtext}>Strength:</div>
                 <input
                   type="number"
                   name="strength"
@@ -375,8 +379,9 @@ const CharacterView = () => {
                   onChange={handleChange}
                 />
               </div>
+
               <div>
-                Dexterity:
+                <div className={styles.textbigtext}>Dexterity:</div>
                 <input
                   type="number"
                   name="dexterity"
@@ -384,8 +389,9 @@ const CharacterView = () => {
                   onChange={handleChange}
                 />
               </div>
+
               <div>
-                Constitution:
+                <div className={styles.textbigtext}>Constitution:</div>
                 <input
                   type="number"
                   name="constitution"
@@ -393,8 +399,9 @@ const CharacterView = () => {
                   onChange={handleChange}
                 />
               </div>
+
               <div>
-                Intelligence:
+                <div className={styles.textbigtext}>Intelligence:</div>
                 <input
                   type="number"
                   name="intelligence"
@@ -402,8 +409,9 @@ const CharacterView = () => {
                   onChange={handleChange}
                 />
               </div>
+
               <div>
-                Wisdom:
+                <div className={styles.textbigtext}>Wisdom:</div>
                 <input
                   type="number"
                   name="wisdom"
@@ -411,8 +419,9 @@ const CharacterView = () => {
                   onChange={handleChange}
                 />
               </div>
+
               <div>
-                Charisma:
+                <div className={styles.textbigtext}>Charisma:</div>
                 <input
                   type="number"
                   name="charisma"
@@ -422,7 +431,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Maximum Hitpoints:
+                <div className={styles.textbigtext}>Maximum Hitpoints:</div>
                 <input
                   type="number"
                   name="maximumhitpoints"
@@ -432,7 +441,8 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Current Hitpoints:
+                <div className={styles.textbigtext}>Current Hitpoints:</div>
+
                 <input
                   type="number"
                   name="currenthitpoints"
@@ -442,7 +452,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Temporary Hitpoints:
+                <div className={styles.textbigtext}>Temporary Hitpoints:</div>
                 <input
                   type="number"
                   name="temporaryhitpoints"
@@ -452,7 +462,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Armorclass:
+                <div className={styles.textbigtext}>Armorclass:</div>
                 <input
                   type="number"
                   name="armorclass"
@@ -462,35 +472,75 @@ const CharacterView = () => {
               </div>
 
               <div>
-                Inventory:
+                <div className={styles.textbigtext}>Inventory:</div>
                 <textarea
+                  className={styles.textareainput}
                   value={character.inventory}
                   name="inventory"
                   onChange={handleChange}
                 />
               </div>
 
-              <button onClick={handleCancel}>Cancel</button>
+              <button
+                className={styles.buttonsoncreate2}
+                onClick={handleCancel}
+              >
+                Cancel
+              </button>
             </>
           ) : (
             <div>
               <h1>{character.name}</h1>
-              <p>Race: {character.race}</p>
-              <p>Class: {character.class}</p>
-              <p>Feature: {character.feature.join(", ")}</p>
-              <p>Level: {character.level}</p>
-              <p>Background: {character.background}</p>
-              <p>Proficiency Bonus: {character.proficiencybonus}</p>
-              <p>Saving Throws: {character.savingthrows.join(", ")}</p>
-              <p>Skills: {character.skill.join(", ")}</p>
-              <p>Strength: {character.strength}</p>
-              <p>Dexterity: {character.dexterity}</p>
-              <p>Constitution: {character.constitution}</p>
-              <p>Intelligence: {character.intelligence}</p>
-              <p>Wisdom: {character.wisdom}</p>
-              <p>Charisma: {character.charisma}</p>
-              <p>Maximum Points: {character.maximumhitpoints}</p>
-              <p>
+              <p className={styles.textslightbigtext}>Race: {character.race}</p>
+              <p className={styles.textslightbigtext}>
+                Class: {character.class}
+              </p>
+              <p className={styles.textslightbigtext}>Feature:</p>
+              <div>
+                {character.feature.map((item, index) => (
+                  <p className={styles.textareadisplay} key={index}>
+                    {item}
+                  </p>
+                ))}
+              </div>
+
+              <p className={styles.textslightbigtext}>
+                Level: {character.level}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Background: {character.background}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Proficiency Bonus: {character.proficiencybonus}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Saving Throws: {character.savingthrows.join(", ")}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Skills: {character.skill.join(", ")}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Strength: {character.strength}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Dexterity: {character.dexterity}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Constitution: {character.constitution}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Intelligence: {character.intelligence}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Wisdom: {character.wisdom}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Charisma: {character.charisma}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Maximum Points: {character.maximumhitpoints}
+              </p>
+              <p className={styles.textslightbigtext}>
                 Current Points:
                 <input
                   type="number"
@@ -499,7 +549,7 @@ const CharacterView = () => {
                   onChange={handleChange}
                 />
               </p>
-              <p>
+              <p className={styles.textslightbigtext}>
                 Temporary Hit Points:
                 <input
                   type="number"
@@ -508,7 +558,7 @@ const CharacterView = () => {
                   onChange={handleChange}
                 />
               </p>
-              <p>
+              <p className={styles.textslightbigtext}>
                 Armor Class:
                 <input
                   type="number"
@@ -517,19 +567,24 @@ const CharacterView = () => {
                   onChange={handleChange}
                 />
               </p>
-              <p>
-                Inventory: {character.inventory.join(", ")}
-                <textarea
-                  value={character.inventory}
-                  name="inventory"
-                  onChange={handleChange}
-                />
+              <p className={styles.textslightbigtext}>Inventory:</p>
+              <p className={styles.textareadisplay}>
+                {character.inventory.join(" , ")}
               </p>
+              <textarea
+                className={styles.textareainput}
+                value={character.inventory}
+                name="inventory"
+                onChange={handleChange}
+              />
               <p>Player: {character.player}</p>
               <p>
                 Created At: {new Date(character.created_at).toLocaleString()}
               </p>
-              <button onClick={handleGoCharacterList}>
+              <button
+                className={styles.buttonsoncreate2}
+                onClick={handleGoCharacterList}
+              >
                 Go back to character list
               </button>
             </div>
@@ -537,7 +592,10 @@ const CharacterView = () => {
         </div>
       )}
 
-      <button onClick={isEditing ? updateCharacter : handleEdit}>
+      <button
+        className={styles.savebutton}
+        onClick={isEditing ? updateCharacter : handleEdit}
+      >
         {isEditing ? "Save" : "Edit"}
       </button>
     </div>
