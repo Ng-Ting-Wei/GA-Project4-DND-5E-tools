@@ -3,6 +3,7 @@ import useFetch from "../hooks/useFetch";
 import userContext from "../context/user";
 import { useInfo } from "../context/info";
 import { Link, useNavigate } from "react-router-dom";
+import styles from "./Style.module.css";
 
 const Login = () => {
   const fetchData = useFetch();
@@ -34,33 +35,37 @@ const Login = () => {
   };
 
   return (
-    <>
-      <br />
-      <div>
-        <input
-          type="email"
-          className="col-md-4"
-          placeholder="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
+    <div>
+      <h1 className={styles.loginheader}>Welcome to DND 5E tools</h1>
+
+      <div className={styles.login}>
+        <br />
+        <div>
+          <input
+            type="email"
+            className="col-md-4"
+            placeholder="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          ></input>
+        </div>
+        <div>
+          <input
+            type="password"
+            className="col-md-4"
+            placeholder="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
+        </div>
+        <button className="col-md-4" type="submit" onClick={handleLogin}>
+          Login
+        </button>
+        <div className={styles.loginregisterlink}>
+          <Link to="/register">Don't have an Account? Sign up here</Link>
+        </div>
       </div>
-      <div>
-        <input
-          type="password"
-          className="col-md-4"
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-      </div>
-      <button className="col-md-4" type="submit" onClick={handleLogin}>
-        Login
-      </button>
-      <div>
-        <Link to="/register">Don't have an Account? Sign up here</Link>
-      </div>
-    </>
+    </div>
   );
 };
 

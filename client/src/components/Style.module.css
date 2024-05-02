@@ -1,0 +1,15 @@
+.login {
+  position: relative;
+  text-align: center;
+  top: 200px;
+}
+.loginheader {
+  position: relative;
+  text-align: center;
+  top: 150px;
+}
+.loginregisterlink {
+  position: inherit;
+  text-align: center;
+  top: 50px;
+}
