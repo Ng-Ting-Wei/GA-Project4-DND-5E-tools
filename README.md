@@ -13,6 +13,7 @@ This app is a game called Dungeons and Dragons 5th Edition, or otherwise called 
 ## Screenshots
 
 This image is the login with a registration link that will bring you to the register page.
+![Login Page](/Loginpage.png)
 
 This image is the registration page when you clicked on the registrations link. Here you can register by inputing your email, username, password and what role you want to take.
 
