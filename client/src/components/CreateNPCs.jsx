@@ -27,7 +27,12 @@ const CreateNPCs = () => {
   const [armorclass, setArmorclass] = useState("");
 
   const getRacelist = async () => {
-    const res = await fetchData("/api/racelist");
+    const res = await fetchData(
+      "/api/racelist",
+      "GET",
+      undefined,
+      userCtx.accessToken
+    );
     if (res.ok) {
       setRacelist(res.data);
     } else {
@@ -36,7 +41,12 @@ const CreateNPCs = () => {
   };
 
   const getSavingthrowlist = async () => {
-    const res = await fetchData("/api/savingthrowlist");
+    const res = await fetchData(
+      "/api/savingthrowlist",
+      "GET",
+      undefined,
+      userCtx.accessToken
+    );
     if (res.ok) {
       setSavingthrowslist(res.data);
     } else {
@@ -45,7 +55,12 @@ const CreateNPCs = () => {
   };
 
   const getSkilllist = async () => {
-    const res = await fetchData("/api/skilllist");
+    const res = await fetchData(
+      "/api/skilllist",
+      "GET",
+      undefined,
+      userCtx.accessToken
+    );
     if (res.ok) {
       setSkilllist(res.data);
     } else {
