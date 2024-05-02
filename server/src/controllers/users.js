@@ -11,6 +11,7 @@ const getAllUser = async (req, res) => {
     for (const user of users) {
       outputArray.push({
         email: user.email,
+        username: user.username,
         role: user.role,
         characters: user.characters,
         npcs: user.npcs,

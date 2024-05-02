@@ -15,6 +15,7 @@ function App() {
   const [accessToken, setAccessToken] = useState("");
   const [userById, setUserById] = useState("");
   const [userRole, setUserRole] = useState("");
+  const [userName, setUserName] = useState("");
 
   return (
     <div>
@@ -26,6 +27,8 @@ function App() {
           setUserById,
           userRole,
           setUserRole,
+          userName,
+          setUserName,
         }}
       >
         <Routes>

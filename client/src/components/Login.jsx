@@ -9,7 +9,7 @@ const Login = () => {
   const fetchData = useFetch();
   const navigate = useNavigate();
   const userCtx = useContext(userContext);
-  const { setUserInfo, setUserById, setUserRole } = useInfo();
+  const { setUserInfo, setUserById, setUserRole, setUserName } = useInfo();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,10 +22,12 @@ const Login = () => {
       userCtx.setAccessToken(res.data.access);
       const userData = res.data;
       userCtx.setUserById(userData.data._id);
+      userCtx.setUserName(userData.data.username);
       userCtx.setUserRole(userData.data.role);
 
       setUserInfo(res.data.data);
       setUserById(res.data.data);
+      setUserName(res.data.username);
       setUserRole(res.data.role);
       // redirect to player page after login
       navigate("/player");

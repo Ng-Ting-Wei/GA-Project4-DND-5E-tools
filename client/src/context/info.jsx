@@ -6,6 +6,7 @@ export const InfoProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState({});
   const [userById, setUserById] = useState({});
   const [userRole, setUserRole] = useState({});
+  const [userName, setUserName] = useState({});
   const [characterId, setCharacterId] = useState("");
   const [npcId, setNPCId] = useState("");
 
@@ -13,11 +14,13 @@ export const InfoProvider = ({ children }) => {
     userInfo,
     userById,
     userRole,
+    userName,
     characterId,
     npcId,
     setUserInfo,
     setUserById,
     setUserRole,
+    setUserName,
     setCharacterId,
     setNPCId,
   };

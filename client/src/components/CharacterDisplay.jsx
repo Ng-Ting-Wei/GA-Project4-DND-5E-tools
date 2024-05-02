@@ -10,8 +10,15 @@ const CharacterDisplay = () => {
   const fetchData = useFetch();
   const navigate = useNavigate();
   const userId = userCtx.userById;
-  const { setUserInfo, setUserById, setUserRole, setCharacterId, userRole } =
-    useInfo();
+  const {
+    setUserInfo,
+    setUserById,
+    setUserRole,
+    setCharacterId,
+    userRole,
+    userName,
+    setUserName,
+  } = useInfo();
   const [characters, setCharacters] = useState([]);
 
   const getAllCharacters = async () => {
@@ -96,15 +103,18 @@ const CharacterDisplay = () => {
     userCtx.setUserById("");
     userCtx.setUserRole("");
     userCtx.setUserRole("");
+    userCtx.setUserName("");
 
     setUserInfo("");
     setUserById("");
     setUserRole("");
+    setUserName("");
+
     navigate("/login");
   };
 
   const handleTest = () => {
-    console.log(characters);
+    console.log(userCtx.userName);
   };
 
   return (
@@ -112,7 +122,7 @@ const CharacterDisplay = () => {
       <div className="row">
         <h1 className={styles.characterheader}>Characters</h1>
       </div>
-      <div></div>
+      <h2>User: {userCtx.userName}</h2>
       <button className={styles.logoutbutton} onClick={handleLogout}>
         Logout
       </button>
