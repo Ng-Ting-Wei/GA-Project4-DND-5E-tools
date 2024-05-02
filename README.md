@@ -12,11 +12,13 @@ This app is a game called Dungeons and Dragons 5th Edition, or otherwise called 
 
 ## Screenshots
 
-This image is the login with a resgistration link that will bring you to the register page.
+This image is the login with a registration link that will bring you to the register page.
 
-This image is the registration page
+This image is the registration page when you clicked on the registrations link. Here you can register by inputing your email, username, password and what role you want to take.
 
-This image is the main page of the player before adding any characters.
+This image is the main page of the player before adding any characters when you logged in.
+
+This image is the main page of the player if you have any character when you logged in.
 
 This image is after clicking on the adding character button. Here you will create your own character that you envision.
 
@@ -52,10 +54,10 @@ To run this project, you will need to add the following environment variables to
 
 [Frontend]
 
-- Fetch, useEffect, useState, useRef
+- Fetch, useEffect, useState
 - Component reuse
 - API usage
-- React lifecycle
+- React
 
 [Backend]
 
@@ -67,8 +69,10 @@ To run this project, you will need to add the following environment variables to
 
 ## Ice Box
 
--
+- Images - Add character image. Currently, there are no image to show the user what that character looks like when you play as them.
 
-## Known Bugs
+- Details - Add details when you click on the abilities, classes, races, etc. There are no displayed informations for many abilities, classes, etc when you want to see which of your abilities do what.
 
--
+- Spells - Add spells to spellcaster. There is no spells in the database and is important to all spellcasters. It will be added during the next update.
+
+- Feats - Add feats to character. There is no feats in the database and is important to most characters. It will be added during the next update.
