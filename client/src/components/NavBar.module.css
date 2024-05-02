@@ -19,13 +19,13 @@
   width: 10rem;
 }
 .navbar a {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 .navbar a:hover,
 .navbar a:active,
 .navbar a.active {
-  color: whitesmoke;
+  color: black;
   padding-bottom: 0.25rem;
-  border-bottom: 4px solid whitesmoke;
+  border-bottom: 4px solid gray;
 }

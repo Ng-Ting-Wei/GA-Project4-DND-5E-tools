@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import UserContext from "../context/user";
 import { useNavigate } from "react-router-dom";
+import styles from "./Style.module.css";
 
 const CreateNPCs = () => {
   const userCtx = useContext(UserContext);
@@ -153,147 +154,168 @@ const CreateNPCs = () => {
 
   return (
     <div>
-      <div>
-        Name:
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        ></input>
-      </div>
-      <div>
-        Feature:
-        <textarea
-          // the inventory is stored as an array, and a textarea input field
-          // is used to allow users to input multiple inventory items
-          // separated by line breaks (\n)
-          value={feature.join("\n")}
-          onChange={(e) => setFeature(e.target.value.split("\n"))}
-        />
-      </div>
-      <div>
-        Race:
-        <select
-          name="racelist"
-          id="racelist"
-          value={race}
-          onChange={(e) => {
-            setRace(e.target.value);
-          }}
-        >
-          <option value="none">please select</option>
-          {racelist.map((item, index) => {
-            return (
-              <option key={index} value={item.race}>
-                {item.race}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-      <div>
-        Saving Throws:
-        {savingthrowslist.map((item, index) => (
-          <label key={index}>
-            <input
-              type="checkbox"
-              checked={savingthrows.includes(item.savingthrow)}
-              onChange={() => toggleSavingthrow(item)}
-            />
-            {item.savingthrow}
-          </label>
-        ))}
-      </div>
-      <div>
-        Skills:
-        {skilllist.map((item, index) => (
-          <label key={index}>
-            <input
-              type="checkbox"
-              checked={skill.includes(item.skill)}
-              onChange={() => toggleSkills(item)}
-            />
-            {item.skill}
-          </label>
-        ))}
-      </div>
-      <div>
-        Strength:
-        <input
-          type="number"
-          value={strength}
-          onChange={(e) => setStrength(parseInt(e.target.value))}
-        ></input>
-      </div>
-      <div>
-        Dexterity:
-        <input
-          type="number"
-          value={dexterity}
-          onChange={(e) => setDexterity(parseInt(e.target.value))}
-        ></input>
-      </div>
-      <div>
-        Constitution:
-        <input
-          type="number"
-          value={constitution}
-          onChange={(e) => setConsitution(parseInt(e.target.value))}
-        ></input>
-      </div>
-      <div>
-        Intelligence:
-        <input
-          type="number"
-          value={intelligence}
-          onChange={(e) => setIntelligence(parseInt(e.target.value))}
-        ></input>
-      </div>
-      <div>
-        Wisdom:
-        <input
-          type="number"
-          value={wisdom}
-          onChange={(e) => setWisdom(parseInt(e.target.value))}
-        ></input>
-      </div>
-      <div>
-        Charisma:
-        <input
-          type="number"
-          value={charisma}
-          onChange={(e) => setCharisma(parseInt(e.target.value))}
-        ></input>
-      </div>
-      <div>
-        Maximum Hitpoints:
-        <input
-          type="number"
-          value={maximumhitpoints}
-          onChange={(e) => setMaximumHitpoints(parseInt(e.target.value))}
-        ></input>
-      </div>
-      <div>
-        Current Hitpoints:
-        <input
-          type="number"
-          value={currentHitpoints}
-          onChange={(e) => setCurrentHitpoints(parseInt(e.target.value))}
-        ></input>
-      </div>
-      <div>
-        Armorclass:
-        <input
-          type="number"
-          value={armorclass}
-          onChange={(e) => setArmorclass(parseInt(e.target.value))}
-        ></input>
-      </div>
+      <div className={styles.charactercreate}>
+        <div>
+          <div className={styles.textbigtext}>Name:</div>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          ></input>
+        </div>
 
-      <button onClick={handleCreated}>Create NPC</button>
-      <button onClick={handleGoNPCList}>Go back to NPC list</button>
+        <div>
+          <div className={styles.textbigtext}>Race:</div>
+          <select
+            name="racelist"
+            id="racelist"
+            value={race}
+            onChange={(e) => {
+              setRace(e.target.value);
+            }}
+          >
+            <option value="none">please select</option>
+            {racelist.map((item, index) => {
+              return (
+                <option key={index} value={item.race}>
+                  {item.race}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+
+        <div>
+          <div className={styles.textbigtext}>Feature:</div>
+          <textarea
+            // the inventory is stored as an array, and a textarea input field
+            // is used to allow users to input multiple inventory items
+            // separated by line breaks (\n)
+            className={styles.textareainput}
+            value={feature.join("\n")}
+            onChange={(e) => setFeature(e.target.value.split("\n"))}
+          />
+        </div>
+
+        <div className={styles.savingthrowcontainer}>
+          <div className={styles.textbigtext}>Savingthrows:</div>
+          {savingthrowslist.map((item, index) => (
+            <label className={styles.savingthrowselect} key={index}>
+              <input
+                type="checkbox"
+                checked={savingthrows.includes(item.savingthrow)}
+                onChange={() => toggleSavingthrow(item)}
+              />
+              {item.savingthrow}
+            </label>
+          ))}
+        </div>
+        <div className={styles.skillcontainer}>
+          <div className={styles.textbigtext}>Skills:</div>
+          {skilllist
+            .sort((a, b) => a.skill.localeCompare(b.skill))
+            .map((item, index) => (
+              <label className={styles.skillselect} key={index}>
+                <input
+                  type="checkbox"
+                  checked={skill.includes(item.skill)}
+                  onChange={() => toggleSkills(item)}
+                />
+                {item.skill}
+              </label>
+            ))}
+        </div>
+        <div>
+          <div className={styles.textbigtext}>Strength</div>
+          <input
+            className={styles.inputarea}
+            type="number"
+            value={strength}
+            onChange={(e) => setStrength(parseInt(e.target.value))}
+          ></input>
+        </div>
+        <div>
+          <div className={styles.textbigtext}>Dexterity</div>
+          <input
+            className={styles.inputarea}
+            type="number"
+            value={dexterity}
+            onChange={(e) => setDexterity(parseInt(e.target.value))}
+          ></input>
+        </div>
+        <div>
+          <div className={styles.textbigtext}>Constitution</div>
+          <input
+            className={styles.inputarea}
+            type="number"
+            value={constitution}
+            onChange={(e) => setConsitution(parseInt(e.target.value))}
+          ></input>
+        </div>
+        <div>
+          <div className={styles.textbigtext}>Intelligence</div>
+          <input
+            className={styles.inputarea}
+            type="number"
+            value={intelligence}
+            onChange={(e) => setIntelligence(parseInt(e.target.value))}
+          ></input>
+        </div>
+        <div>
+          <div className={styles.textbigtext}>Wisdom</div>
+          <input
+            className={styles.inputarea}
+            type="number"
+            value={wisdom}
+            onChange={(e) => setWisdom(parseInt(e.target.value))}
+          ></input>
+        </div>
+        <div>
+          <div className={styles.textbigtext}>Charisma</div>
+          <input
+            className={styles.inputarea}
+            type="number"
+            value={charisma}
+            onChange={(e) => setCharisma(parseInt(e.target.value))}
+          ></input>
+        </div>
+        <div>
+          <div className={styles.textbigtext}>Maximum Hitpoints</div>
+          <input
+            className={styles.inputarea}
+            type="number"
+            value={maximumhitpoints}
+            onChange={(e) => setMaximumHitpoints(parseInt(e.target.value))}
+          ></input>
+        </div>
+        <div>
+          <div className={styles.textbigtext}>Current Hitpoints</div>
+          <input
+            className={styles.inputarea}
+            type="number"
+            value={currentHitpoints}
+            onChange={(e) => setCurrentHitpoints(parseInt(e.target.value))}
+          ></input>
+        </div>
+        <div>
+          <div className={styles.textbigtext}>Armor Class:</div>
+          <input
+            className={styles.inputarea}
+            type="number"
+            value={armorclass}
+            onChange={(e) => setArmorclass(parseInt(e.target.value))}
+          ></input>
+        </div>
+
+        <button className={styles.buttonsoncreate} onClick={handleCreated}>
+          Create NPC
+        </button>
+        <button className={styles.buttonsoncreate} onClick={handleGoNPCList}>
+          Go back to NPC list
+        </button>
+      </div>
     </div>
   );
 };
