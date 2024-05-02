@@ -16,7 +16,6 @@ const CharacterDisplay = () => {
     setUserRole,
     setCharacterId,
     userRole,
-    userName,
     setUserName,
   } = useInfo();
   const [characters, setCharacters] = useState([]);
@@ -118,8 +117,8 @@ const CharacterDisplay = () => {
   };
 
   return (
-    <div>
-      <div className="row">
+    <div className={styles.characterviewbackgroind}>
+      <div>
         <h1 className={styles.characterheader}>Characters</h1>
       </div>
       <h2 className={styles.username}>User: {userCtx.userName}</h2>

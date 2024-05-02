@@ -37,7 +37,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className={styles.loginbackground}>
       <h1 className={styles.loginheader}>Welcome to DND 5E tools</h1>
 
       <div className={styles.login}>
