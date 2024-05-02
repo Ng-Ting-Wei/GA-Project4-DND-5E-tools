@@ -16,6 +16,7 @@ This image is the login with a registration link that will bring you to the regi
 ![Login Page](./image/Login.png)
 
 This image is the registration page when you clicked on the registrations link. Here you can register by inputing your email, username, password and what role you want to take.
+![Register Page](./image/Regiser.png)
 
 This image is the main page of the player before adding any characters when you logged in.
 
