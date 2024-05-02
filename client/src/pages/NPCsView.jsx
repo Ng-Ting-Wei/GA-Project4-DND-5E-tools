@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import UserContext from "../context/user";
 import { useInfo } from "../context/info";
+import styles from "../components/Style.module.css";
 
 const NPCsView = () => {
   const userCtx = useContext(UserContext);
@@ -198,11 +199,11 @@ const NPCsView = () => {
   return (
     <div>
       {npc && (
-        <div>
+        <div className={styles.charactercreate}>
           {isEditing ? (
             <>
               <div>
-                Name:
+                <div className={styles.textbigtext}>Name:</div>
                 <input
                   type="text"
                   name="name"
@@ -212,7 +213,7 @@ const NPCsView = () => {
               </div>
 
               <div>
-                Race:
+                <div className={styles.textbigtext}>Race:</div>
                 <select name="race" value={npc.race} onChange={handleChange}>
                   {racelist.map((item, index) => {
                     return (
@@ -225,8 +226,9 @@ const NPCsView = () => {
               </div>
 
               <div>
-                Feature:
+                <div className={styles.textbigtext}>Feature:</div>
                 <textarea
+                  className={styles.textareainput}
                   value={npc.feature}
                   name="feature"
                   onChange={handleChange}
@@ -234,7 +236,7 @@ const NPCsView = () => {
               </div>
 
               <div>
-                Proficiency Bonus:
+                <div className={styles.textbigtext}>Proficiency Bonus:</div>
                 <input
                   type="number"
                   name="proficiencybonus"
@@ -244,9 +246,9 @@ const NPCsView = () => {
               </div>
 
               <div>
-                Savingthrows:
+                <div className={styles.textbigtext}>Savingthrows:</div>
                 {savingthrowslist.map((item, index) => (
-                  <label key={index}>
+                  <label className={styles.savingthrowselect} key={index}>
                     <input
                       type="checkbox"
                       checked={npc.savingthrows.includes(item.savingthrow)}
@@ -260,23 +262,25 @@ const NPCsView = () => {
               </div>
 
               <div>
-                Skills:
-                {skilllist.map((item, index) => (
-                  <label key={index}>
-                    <input
-                      type="checkbox"
-                      checked={npc.skill.includes(item.skill)}
-                      onChange={() => {
-                        handleSkills(item);
-                      }}
-                    />
-                    {item.skill}
-                  </label>
-                ))}
+                <div className={styles.textbigtext}>Skills:</div>
+                {skilllist
+                  .sort((a, b) => a.skill.localeCompare(b.skill))
+                  .map((item, index) => (
+                    <label className={styles.skillselect} key={index}>
+                      <input
+                        type="checkbox"
+                        checked={npc.skill.includes(item.skill)}
+                        onChange={() => {
+                          handleSkills(item);
+                        }}
+                      />
+                      {item.skill}
+                    </label>
+                  ))}
               </div>
 
               <div>
-                Strength:
+                <div className={styles.textbigtext}>Strength</div>
                 <input
                   type="number"
                   name="strength"
@@ -285,7 +289,7 @@ const NPCsView = () => {
                 />
               </div>
               <div>
-                Dexterity:
+                <div className={styles.textbigtext}>Dexterity</div>
                 <input
                   type="number"
                   name="dexterity"
@@ -294,7 +298,7 @@ const NPCsView = () => {
                 />
               </div>
               <div>
-                Constitution:
+                <div className={styles.textbigtext}>Constitution</div>
                 <input
                   type="number"
                   name="constitution"
@@ -303,7 +307,7 @@ const NPCsView = () => {
                 />
               </div>
               <div>
-                Intelligence:
+                <div className={styles.textbigtext}>Intelligence</div>
                 <input
                   type="number"
                   name="intelligence"
@@ -312,7 +316,7 @@ const NPCsView = () => {
                 />
               </div>
               <div>
-                Wisdom:
+                <div className={styles.textbigtext}>Wisdom</div>
                 <input
                   type="number"
                   name="wisdom"
@@ -321,7 +325,7 @@ const NPCsView = () => {
                 />
               </div>
               <div>
-                Charisma:
+                <div className={styles.textbigtext}>Charisma</div>
                 <input
                   type="number"
                   name="charisma"
@@ -331,7 +335,7 @@ const NPCsView = () => {
               </div>
 
               <div>
-                Maximum Hitpoints:
+                <div className={styles.textbigtext}>Maximum Hitpoints</div>
                 <input
                   type="number"
                   name="maximumhitpoints"
@@ -341,7 +345,7 @@ const NPCsView = () => {
               </div>
 
               <div>
-                Current Hitpoints:
+                <div className={styles.textbigtext}>Current Hitpoints</div>
                 <input
                   type="number"
                   name="currenthitpoints"
@@ -351,7 +355,7 @@ const NPCsView = () => {
               </div>
 
               <div>
-                Armorclass:
+                <div className={styles.textbigtext}>Armorclass</div>
                 <input
                   type="number"
                   name="armorclass"
@@ -360,25 +364,55 @@ const NPCsView = () => {
                 />
               </div>
 
-              <button onClick={handleCancel}>Cancel</button>
+              <button
+                className={styles.buttonsoncreate2}
+                onClick={handleCancel}
+              >
+                Cancel
+              </button>
             </>
           ) : (
             <div>
               <h1>{npc.name}</h1>
-              <p>Race: {npc.race}</p>
-              <p>Feature: {npc.feature.join(", ")}</p>
-              <p>Proficiency Bonus: {npc.proficiencybonus}</p>
-              <p>Saving Throws: {npc.savingthrows.join(", ")}</p>
-              <p>Skills: {npc.skill.join(", ")}</p>
-              <p>Strength: {npc.strength}</p>
-              <p>Dexterity: {npc.dexterity}</p>
-              <p>Constitution: {npc.constitution}</p>
-              <p>Intelligence: {npc.intelligence}</p>
-              <p>Wisdom: {npc.wisdom}</p>
-              <p>Charisma: {npc.charisma}</p>
-              <p>Maximum Points: {npc.maximumhitpoints}</p>
-              <p>
-                Current Points:
+              <p className={styles.textslightbigtext}>Race: {npc.race}</p>
+              <p className={styles.textslightbigtext}>Feature:</p>
+              <div>
+                {npc.feature.map((item, index) => (
+                  <p className={styles.textareadisplay} key={index}>
+                    {item}
+                  </p>
+                ))}
+              </div>
+              <p className={styles.textslightbigtext}>
+                Proficiency Bonus: {npc.proficiencybonus}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Saving Throws: {npc.savingthrows.join(", ")}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Skills: {npc.skill.join(", ")}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Strength {npc.strength}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Dexterity {npc.dexterity}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Constitution {npc.constitution}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Intelligence {npc.intelligence}
+              </p>
+              <p className={styles.textslightbigtext}>Wisdom {npc.wisdom}</p>
+              <p className={styles.textslightbigtext}>
+                Charisma {npc.charisma}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Maximum Points {npc.maximumhitpoints}
+              </p>
+              <p className={styles.textslightbigtext}>
+                Current Points
                 <input
                   type="number"
                   name="currenthitpoints"
@@ -386,8 +420,8 @@ const NPCsView = () => {
                   onChange={handleChange}
                 />
               </p>
-              <p>
-                Armor Class:
+              <p className={styles.textslightbigtext}>
+                Armor Class
                 <input
                   type="number"
                   name="armorclass"
@@ -397,7 +431,10 @@ const NPCsView = () => {
               </p>
               <p>Player: {npc.player}</p>
               <p>Created At: {new Date(npc.created_at).toLocaleString()}</p>
-              <button onClick={handleGoCharacterList}>
+              <button
+                className={styles.buttonsoncreate2}
+                onClick={handleGoCharacterList}
+              >
                 Go back to npc list
               </button>
             </div>
@@ -405,7 +442,10 @@ const NPCsView = () => {
         </div>
       )}
 
-      <button onClick={isEditing ? updateNPC : handleEdit}>
+      <button
+        className={styles.savebutton}
+        onClick={isEditing ? updateNPC : handleEdit}
+      >
         {isEditing ? "Save" : "Edit"}
       </button>
     </div>

@@ -371,7 +371,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                <div className={styles.textbigtext}>Strength:</div>
+                <div className={styles.textbigtext}>Strength</div>
                 <input
                   type="number"
                   name="strength"
@@ -381,7 +381,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                <div className={styles.textbigtext}>Dexterity:</div>
+                <div className={styles.textbigtext}>Dexterity</div>
                 <input
                   type="number"
                   name="dexterity"
@@ -391,7 +391,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                <div className={styles.textbigtext}>Constitution:</div>
+                <div className={styles.textbigtext}>Constitution</div>
                 <input
                   type="number"
                   name="constitution"
@@ -401,7 +401,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                <div className={styles.textbigtext}>Intelligence:</div>
+                <div className={styles.textbigtext}>Intelligence</div>
                 <input
                   type="number"
                   name="intelligence"
@@ -411,7 +411,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                <div className={styles.textbigtext}>Wisdom:</div>
+                <div className={styles.textbigtext}>Wisdom</div>
                 <input
                   type="number"
                   name="wisdom"
@@ -421,7 +421,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                <div className={styles.textbigtext}>Charisma:</div>
+                <div className={styles.textbigtext}>Charisma</div>
                 <input
                   type="number"
                   name="charisma"
@@ -431,7 +431,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                <div className={styles.textbigtext}>Maximum Hitpoints:</div>
+                <div className={styles.textbigtext}>Maximum Hitpoints</div>
                 <input
                   type="number"
                   name="maximumhitpoints"
@@ -441,7 +441,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                <div className={styles.textbigtext}>Current Hitpoints:</div>
+                <div className={styles.textbigtext}>Current Hitpoints</div>
 
                 <input
                   type="number"
@@ -452,7 +452,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                <div className={styles.textbigtext}>Temporary Hitpoints:</div>
+                <div className={styles.textbigtext}>Temporary Hitpoints</div>
                 <input
                   type="number"
                   name="temporaryhitpoints"
@@ -462,7 +462,7 @@ const CharacterView = () => {
               </div>
 
               <div>
-                <div className={styles.textbigtext}>Armorclass:</div>
+                <div className={styles.textbigtext}>Armorclass</div>
                 <input
                   type="number"
                   name="armorclass"
@@ -520,28 +520,28 @@ const CharacterView = () => {
                 Skills: {character.skill.join(", ")}
               </p>
               <p className={styles.textslightbigtext}>
-                Strength: {character.strength}
+                Strength {character.strength}
               </p>
               <p className={styles.textslightbigtext}>
-                Dexterity: {character.dexterity}
+                Dexterity {character.dexterity}
               </p>
               <p className={styles.textslightbigtext}>
-                Constitution: {character.constitution}
+                Constitution {character.constitution}
               </p>
               <p className={styles.textslightbigtext}>
-                Intelligence: {character.intelligence}
+                Intelligence {character.intelligence}
               </p>
               <p className={styles.textslightbigtext}>
-                Wisdom: {character.wisdom}
+                Wisdom {character.wisdom}
               </p>
               <p className={styles.textslightbigtext}>
-                Charisma: {character.charisma}
+                Charisma {character.charisma}
               </p>
               <p className={styles.textslightbigtext}>
-                Maximum Points: {character.maximumhitpoints}
+                Maximum Points {character.maximumhitpoints}
               </p>
               <p className={styles.textslightbigtext}>
-                Current Points:
+                Current Points
                 <input
                   type="number"
                   name="currenthitpoints"
@@ -550,7 +550,7 @@ const CharacterView = () => {
                 />
               </p>
               <p className={styles.textslightbigtext}>
-                Temporary Hit Points:
+                Temporary Hit Points
                 <input
                   type="number"
                   name="temporaryhitpoints"
@@ -559,7 +559,7 @@ const CharacterView = () => {
                 />
               </p>
               <p className={styles.textslightbigtext}>
-                Armor Class:
+                Armor Class
                 <input
                   type="number"
                   name="armorclass"

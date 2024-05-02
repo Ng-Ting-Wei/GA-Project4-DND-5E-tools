@@ -420,7 +420,7 @@ const CreateCharacter = () => {
         </div>
 
         <div>
-          <div className={styles.textbigtext}>Armor Class:</div>
+          <div className={styles.textbigtext}>Armor Class</div>
           <input
             className={styles.inputarea}
             type="number"
