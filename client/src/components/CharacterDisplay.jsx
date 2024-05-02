@@ -122,18 +122,16 @@ const CharacterDisplay = () => {
       <div className="row">
         <h1 className={styles.characterheader}>Characters</h1>
       </div>
-      <h2>User: {userCtx.userName}</h2>
+      <h2 className={styles.username}>User: {userCtx.userName}</h2>
       <button className={styles.logoutbutton} onClick={handleLogout}>
         Logout
       </button>
-
       <button
         className={styles.charactercreatebutton}
         onClick={handleCreateCharacter}
       >
         Create Character
       </button>
-
       {characters.map((item) => (
         <div className={styles.characterborder} key={item._id}>
           <div className={styles.characterdetail}>
