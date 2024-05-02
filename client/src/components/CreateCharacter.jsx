@@ -229,34 +229,15 @@ const CreateCharacter = () => {
             }}
           >
             <option value="none">please select</option>
-            {racelist.map((item, index) => {
-              return (
-                <option key={index} value={item.race}>
-                  {item.race}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-
-        <div>
-          <div className={styles.textbigtext}>Background:</div>
-          <select
-            name="backgroundlist"
-            id="backgroundlist"
-            value={background}
-            onChange={(e) => {
-              setBackground(e.target.value);
-            }}
-          >
-            <option value="none">please select</option>
-            {backgroundlist.map((item, index) => {
-              return (
-                <option key={index} value={item.background}>
-                  {item.background}
-                </option>
-              );
-            })}
+            {racelist
+              .sort((a, b) => a.race.localeCompare(b.race))
+              .map((item, index) => {
+                return (
+                  <option key={index} value={item.race}>
+                    {item.race}
+                  </option>
+                );
+              })}
           </select>
         </div>
 
@@ -271,24 +252,16 @@ const CreateCharacter = () => {
             }}
           >
             <option value="none">please select</option>
-            {classlist.map((item, index) => {
-              return (
-                <option key={index} value={item.classlist}>
-                  {item.classlist}
-                </option>
-              );
-            })}
+            {classlist
+              .sort((a, b) => a.classlist.localeCompare(b.classlist))
+              .map((item, index) => {
+                return (
+                  <option key={index} value={item.classlist}>
+                    {item.classlist}
+                  </option>
+                );
+              })}
           </select>
-        </div>
-
-        <div>
-          <div className={styles.textbigtext}>Level:</div>
-          <input
-            className={styles.inputarea}
-            type="number"
-            value={level}
-            onChange={(e) => setLevel(parseInt(e.target.value))}
-          ></input>
         </div>
 
         <div>
@@ -303,6 +276,39 @@ const CreateCharacter = () => {
               onChange={(e) => setFeature(e.target.value.split("\n"))}
             />
           </div>
+        </div>
+
+        <div>
+          <div className={styles.textbigtext}>Level:</div>
+          <input
+            className={styles.inputarea}
+            type="number"
+            value={level}
+            onChange={(e) => setLevel(parseInt(e.target.value))}
+          ></input>
+        </div>
+
+        <div>
+          <div className={styles.textbigtext}>Background:</div>
+          <select
+            name="backgroundlist"
+            id="backgroundlist"
+            value={background}
+            onChange={(e) => {
+              setBackground(e.target.value);
+            }}
+          >
+            <option value="none">please select</option>
+            {backgroundlist
+              .sort((a, b) => a.background.localeCompare(b.background))
+              .map((item, index) => {
+                return (
+                  <option key={index} value={item.background}>
+                    {item.background}
+                  </option>
+                );
+              })}
+          </select>
         </div>
 
         <div className={styles.savingthrowcontainer}>

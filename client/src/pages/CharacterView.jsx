@@ -260,13 +260,15 @@ const CharacterView = () => {
                   value={character.race}
                   onChange={handleChange}
                 >
-                  {racelist.map((item, index) => {
-                    return (
-                      <option key={index} value={item.race}>
-                        {item.race}
-                      </option>
-                    );
-                  })}
+                  {racelist
+                    .sort((a, b) => a.race.localeCompare(b.race))
+                    .map((item, index) => {
+                      return (
+                        <option key={index} value={item.race}>
+                          {item.race}
+                        </option>
+                      );
+                    })}
                 </select>
               </div>
 
@@ -277,13 +279,15 @@ const CharacterView = () => {
                   value={character.class}
                   onChange={handleChange}
                 >
-                  {classlist.map((item, index) => {
-                    return (
-                      <option key={index} value={item.classlist}>
-                        {item.classlist}
-                      </option>
-                    );
-                  })}
+                  {classlist
+                    .sort((a, b) => a.classlist.localeCompare(b.classlist))
+                    .map((item, index) => {
+                      return (
+                        <option key={index} value={item.classlist}>
+                          {item.classlist}
+                        </option>
+                      );
+                    })}
                 </select>
               </div>
 
@@ -324,13 +328,15 @@ const CharacterView = () => {
                   value={character.background}
                   onChange={handleChange}
                 >
-                  {backgroundlist.map((item, index) => {
-                    return (
-                      <option key={index} value={item.background}>
-                        {item.background}
-                      </option>
-                    );
-                  })}
+                  {backgroundlist
+                    .sort((a, b) => a.background.localeCompare(b.background))
+                    .map((item, index) => {
+                      return (
+                        <option key={index} value={item.background}>
+                          {item.background}
+                        </option>
+                      );
+                    })}
                 </select>
               </div>
 
