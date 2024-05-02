@@ -54,5 +54,39 @@
   padding: 8px 16px;
 }
 .charactercreate {
-  height: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 15px;
+  text-align: center;
+}
+.textbigtext {
+  font-size: xx-large;
+}
+.textareainput {
+  width: 50%;
+  height: 200px;
+}
+.inputarea {
+  width: 20%;
+  margin-right: 10px;
+}
+.savingthrowcontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.savingthrowselect {
+  width: 100%;
+}
+.skillcontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.skillselect {
+  width: 100%;
+}
+.buttonsoncreate {
+  padding: 12px 12px;
 }
