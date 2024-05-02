@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import { Link } from "react-router-dom";
+import styles from "./Style.module.css";
 
 const Registration = () => {
   const fetchData = useFetch();
@@ -43,68 +44,74 @@ const Registration = () => {
   }, []);
 
   return (
-    <>
+    <div className={styles.loginbackground}>
+      <h1 className={styles.loginheader}>
+        Welcome to DND 5E tools Registration Page
+      </h1>
+
       <br />
-      <div>
-        <input
-          className="col-md-4"
-          placeholder="email"
-          type="text"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        ></input>
+      <div className={styles.login}>
+        <div>
+          <input
+            className="col-md-4"
+            placeholder="email"
+            type="text"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          ></input>
+        </div>
+        <div>
+          <input
+            className="col-md-4"
+            placeholder="username"
+            type="text"
+            value={username}
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          ></input>
+        </div>
+        <div>
+          <input
+            className="col-md-4"
+            placeholder="password"
+            type="text"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          ></input>
+        </div>
+        <div>
+          <select
+            name="roles"
+            id="roles"
+            className="col-md-4"
+            value={role}
+            onChange={(e) => {
+              setRole(e.target.value);
+            }}
+          >
+            <option value="none">please select</option>
+            {roles.map((item) => {
+              return (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <button className="col-md-4" type="submit" onClick={registerUser}>
+          Register
+        </button>
+        <div className={styles.loginregisterlink}>
+          <Link to="/login">Already have an account?</Link>
+        </div>
       </div>
-      <div>
-        <input
-          className="col-md-4"
-          placeholder="username"
-          type="text"
-          value={username}
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-        ></input>
-      </div>
-      <div>
-        <input
-          className="col-md-4"
-          placeholder="password"
-          type="text"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        ></input>
-      </div>
-      <div>
-        <select
-          name="roles"
-          id="roles"
-          className="col-md-4"
-          value={role}
-          onChange={(e) => {
-            setRole(e.target.value);
-          }}
-        >
-          <option value="none">please select</option>
-          {roles.map((item) => {
-            return (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-      <button className="col-md-4" type="submit" onClick={registerUser}>
-        Register
-      </button>
-      <div>
-        <Link to="/login">Already have an account?</Link>
-      </div>
-    </>
+    </div>
   );
 };
 
