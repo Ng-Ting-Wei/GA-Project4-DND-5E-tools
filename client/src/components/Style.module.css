@@ -13,3 +13,28 @@
   text-align: center;
   top: 50px;
 }
+.logoutbutton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.characterheader {
+  position: relative;
+  text-align: center;
+}
+.charactercreatebutton {
+  position: relative;
+  left: 680px;
+}
+.characterborder {
+  position: relative;
+  border: 1px solid black;
+  padding: 20px;
+}
+.characterdetail {
+  text-align: center;
+}
+.characterbutton {
+  position: relative;
+  padding: 8px 16px;
+}

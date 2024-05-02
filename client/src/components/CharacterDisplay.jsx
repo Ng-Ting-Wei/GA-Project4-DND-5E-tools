@@ -3,6 +3,7 @@ import useFetch from "../hooks/useFetch";
 import UserContext from "../context/user";
 import { useInfo } from "../context/info";
 import { useNavigate } from "react-router-dom";
+import styles from "./Style.module.css";
 
 const CharacterDisplay = () => {
   const userCtx = useContext(UserContext);
@@ -109,32 +110,40 @@ const CharacterDisplay = () => {
   return (
     <div>
       <div className="row">
-        <div className="col-md-3">Characters</div>
+        <h1 className={styles.characterheader}>Characters</h1>
       </div>
-      <button onClick={handleLogout}>Logout</button>
+      <div></div>
+      <button className={styles.logoutbutton} onClick={handleLogout}>
+        Logout
+      </button>
 
-      <button onClick={handleCreateCharacter}>Create Character</button>
+      <button
+        className={styles.charactercreatebutton}
+        onClick={handleCreateCharacter}
+      >
+        Create Character
+      </button>
 
       {characters.map((item) => (
-        <div key={item._id} style={{ marginBottom: "10px" }}>
-          <div>
-            <span>Name: {item.name}</span>
-            <span style={{ marginLeft: "10px" }}>Race: {item.race}</span>
-            <span style={{ marginLeft: "10px" }}>Class: {item.class}</span>
-            <span style={{ marginLeft: "10px" }}>Level: {item.level}</span>
-            <span style={{ marginLeft: "10px" }}>
+        <div className={styles.characterborder} key={item._id}>
+          <div className={styles.characterdetail}>
+            <p>Name: {item.name}</p>
+            <p>Race: {item.race}</p>
+            <p>Class: {item.class}</p>
+            <p>Level: {item.level}</p>
+            <p>
               {/* // Convert to local time in a readable format */}
               Date Created: {new Date(item.created_at).toLocaleString()}
-            </span>
-            <span style={{ marginLeft: "10px" }}>Character id: {item._id}</span>
+            </p>
+            <p>Character id: {item._id}</p>
             <button
-              className="col-md-2"
+              className={styles.characterbutton}
               onClick={() => handleViewCharacter(item._id)}
             >
               View Character
             </button>
             <button
-              className="col-md-2"
+              className={styles.characterbutton}
               onClick={() => deleteCharacter(item._id)}
             >
               Delete Character
