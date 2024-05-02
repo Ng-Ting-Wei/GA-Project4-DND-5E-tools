@@ -177,13 +177,15 @@ const CreateNPCs = () => {
             }}
           >
             <option value="none">please select</option>
-            {racelist.map((item, index) => {
-              return (
-                <option key={index} value={item.race}>
-                  {item.race}
-                </option>
-              );
-            })}
+            {racelist
+              .sort((a, b) => a.race.localeCompare(b.race))
+              .map((item, index) => {
+                return (
+                  <option key={index} value={item.race}>
+                    {item.race}
+                  </option>
+                );
+              })}
           </select>
         </div>
 

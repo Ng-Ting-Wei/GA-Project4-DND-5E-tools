@@ -215,13 +215,15 @@ const NPCsView = () => {
               <div>
                 <div className={styles.textbigtext}>Race:</div>
                 <select name="race" value={npc.race} onChange={handleChange}>
-                  {racelist.map((item, index) => {
-                    return (
-                      <option key={index} value={item.race}>
-                        {item.race}
-                      </option>
-                    );
-                  })}
+                  {racelist
+                    .sort((a, b) => a.race.localeCompare(b.race))
+                    .map((item, index) => {
+                      return (
+                        <option key={index} value={item.race}>
+                          {item.race}
+                        </option>
+                      );
+                    })}
                 </select>
               </div>
 
