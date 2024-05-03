@@ -18,7 +18,7 @@ This image is the login with a registration link that will bring you to the regi
 This image is the registration page when you clicked on the registrations link. Here you can register by inputing your email, username, password and what role you want to take.
 ![Register Page](./image/Register.png)
 
-This image is the main page of the player before adding any characters when you logged in. Your name will be shown on the top left of the page and you can create a character when you click on the create character button on the top right. You can also logout from your account when you click on the top right of the page and it will bring you to the login page.
+This image is the main page of the player before adding any characters when you logged in. Your name will be shown on the top left of the page and you can create a character when you click on the create character button on the top right. You can also logout from your account when you click on the top right of the page and it will bring you to the login page. You can click on the view character to go into the character view page and see what you have created. You can also delete your characters when you click on the delete character.
 ![Player1 Page](./image/Player1.png)
 
 This image is the main page of the player if you have any character when you logged in. Your name will be shown on the top left of the page and you can create a character when you click on the create character button on the top right. You can also logout from your account when you click on the top right of the page and it will bring you to the login page.
@@ -37,10 +37,20 @@ Here you will select your character skills from your class and background. There
 Here you will input your ability score for strength, dexterity, consitution, intelligence, wisdom and charisma. You will also input your maximum hitpoints and current hitpoints, both would be the same for the purpose of character creation.
 ![Createcharacter4 Page](./image/Createcharacter4.png)
 
-Here you will input your armor class(AC) in numbers and input your inventory. The inventory you will take from your class and backgrounds. On the bottom of the character creation, there are two buttons. Create character will take what you input and create a character for you and will bring you to the character display page in which you will see your own created character. Go back to character will erase all your inputs and brings you to the character display page.
+Here you will input your armor class(AC) in numbers and input your inventory. The inventory you will take from your class and backgrounds. On the bottom of the character creation, there are two buttons. Create character will take what you input and create a character for you and will bring you to the character display page in which you will see your own created character. Go back to character will erase all your inputs and brings you to the character display page .
 ![Createcharacter5 Page](./image/Createcharacter5.png)
 
-This image is after adding the character that you made.
+This image is after clicking on the view character that you made.
+![Viewcharacter1 Page](./image/Viewcharacter1.png)
+![Viewcharacter2 Page](./image/Viewcharacter2.png)
+![Viewcharacter3 Page](./image/Viewcharacter3.png)
+
+This image is after clicking on the edit button.
+![Editcharacter1 Page](./image/Editcharacter1.png)
+![Editcharacter2 Page](./image/Editcharacter2.png)
+![Editcharacter3 Page](./image/Editcharacter3.png)
+![Editcharacter4 Page](./image/Editcharacter4.png)
+![Editcharacter5 Page](./image/Editcharacter5.png)
 
 ## Technologies Used
 
