@@ -37,7 +37,7 @@ Here you will select your character skills from your class and background. There
 Here you will input your ability score for strength, dexterity, consitution, intelligence, wisdom and charisma. You will also input your maximum hitpoints and current hitpoints, both would be the same for the purpose of character creation.
 ![Createcharacter4 Page](./image/Createcharacter4.png)
 
-Here you will input your armor class(AC) in numbers and input your inventory. The inventory you will take from your class and backgrounds
+Here you will input your armor class(AC) in numbers and input your inventory. The inventory you will take from your class and backgrounds. On the bottom of the character creation, there are two buttons. Create character will take what you input and create a character for you and will bring you to the character display page in which you will see your own created character. Go back to character will erase all your inputs and brings you to the character display page.
 ![Createcharacter5 Page](./image/Createcharacter5.png)
 
 This image is after adding the character that you made.
