@@ -25,6 +25,20 @@ This image is the main page of the player if you have any character when you log
 ![Player2 Page](./image/Player2.png)
 
 This image is after clicking on the adding character button. Here you will create your own character that you envision.
+Here you will input your name for you character. Pick one of the basic races, classes and backgrounds. Your features you have to input yourself while refering to the books. The level you should be starting at level 1 or whatever your dm(Dungeon Master) says.
+![Createcharacter1 Page](./image/Createcharacter1.png)
+
+Here you will select only two savingthrows that your class gives you. If you select two, the check box will be disable and not allow you to add in more.
+![Createcharacter2 Page](./image/Createcharacter2.png)
+
+Here you will select your character skills from your class and background. There is no limit to your selection.
+![Createcharacter3 Page](./image/Createcharacter3.png)
+
+Here you will input your ability score for strength, dexterity, consitution, intelligence, wisdom and charisma. You will also input your maximum hitpoints and current hitpoints, both would be the same for the purpose of character creation.
+![Createcharacter4 Page](./image/Createcharacter4.png)
+
+Here you will input your armor class(AC) in numbers and input your inventory. The inventory you will take from your class and backgrounds
+![Createcharacter5 Page](./image/Createcharacter5.png)
 
 This image is after adding the character that you made.
 
