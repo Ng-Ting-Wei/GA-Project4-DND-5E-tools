@@ -15,7 +15,7 @@ This app is a game called Dungeons and Dragons 5th Edition, or otherwise called 
 This image is the login with a registration link that will bring you to the register page.
 ![Login Page](./image/Login.png)
 
-This image is the registration page when you clicked on the registrations link. Here you can register by inputing your email, username, password and what role you want to take.
+This image is the registration page when you clicked on the registrations link. Here you can register by inputing your email, username, password and what role you want to take. Currently, there is only player
 ![Register Page](./image/Register.png)
 
 This image is the main page of the player before adding any characters when you logged in. Your name will be shown on the top left of the page and you can create a character when you click on the create character button on the top right. You can also logout from your account when you click on the top right of the page and it will bring you to the login page. You can click on the view character to go into the character view page and see what you have created. You can also delete your characters when you click on the delete character.
@@ -63,6 +63,16 @@ Here you can change your input for your ability scores and hitpoints.
 
 Here you can change your input for your temporary hit points and armor class. You can add more or erase your inventory.
 ![Editcharacter5 Page](./image/Editcharacter5.png)
+
+This image is after logging in as a Dungeon Master (DM). Here you can see that the DM has access to all the players characters. You can view character, delete character, create character.
+![DMcharacterdisplay1 Page](./image/DMcharacterdisplay1.png)
+![DMcharacterdisplay2 Page](./image/DMcharacterdisplay2.png)
+
+Here you can view and edit the player's character.
+![DMcharacterview Page](./image/DMcharacterview.png)
+![DMcharacteredit Page](./image/DMcharacteredit.png)
+
+This image is
 
 ## Technologies Used
 
