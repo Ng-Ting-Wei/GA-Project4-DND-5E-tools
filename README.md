@@ -5,10 +5,20 @@ This app is a game called Dungeons and Dragons 5th Edition, or otherwise called 
 ## Features
 
 - Login & Registration
-- Lovely cute pet dogs to adopt
-- Feed, Train & Play with your furry companion!
-- Daily tasks to accomplish with your wonderful furriend based on your goals for this app!
-- Adopt more dogs as you increase your closeness and relationship with your furkids!
+- Logout after you are done
+- Create your character as a player
+- View your character as a player
+- Edit your character as a player
+- Delete your character as a player
+
+- Create your character as a dungeon master
+- View your character as a dungeon master
+- Edit your character as a dungeon master
+- Delete your character as a dungeon master
+- Create your NPC as a dungeon master
+- View your NPC as a dungeon master
+- Edit your NPC as a dungeon master
+- Delete your NPC as a dungeon master
 
 ## Screenshots
 
@@ -87,6 +97,10 @@ Here you can input your ability scores, maximum and current hit points for you N
 Here you can input your armor class (AC) for your NPC. The create NPC will take your input for your NPC and create it, and brings you to the NPC view page. Go back to NPC list will not save your NPC and go back to the NPC view page.
 ![NPCcreate4 Page](./image/NPCcreate4.png)
 
+This image is when you click on view NPC button.
+![NPCview1 Page](./image/NPCview1.png)
+![NPCview2 Page](./image/NPCview2.png)
+
 ## Technologies Used
 
 - HTML
@@ -139,3 +153,7 @@ To run this project, you will need to add the following environment variables to
 - Spells - Add spells to spellcaster. There is no spells in the database and is important to all spellcasters. It will be added during the next update.
 
 - Feats - Add feats to character. There is no feats in the database and is important to most characters. It will be added during the next update.
+
+## Known Bugs
+
+- When you input any characters in the strength, dexterity, consitution, intelligence, wisdom and charisma. The proficency bonus, maximum hitpoints, current hitpoints, temporaray hitpoints and armor class(AC).
