@@ -64,7 +64,7 @@ Here you can change your input for your ability scores and hitpoints.
 Here you can change your input for your temporary hit points and armor class. You can add more or erase your inventory.
 ![Editcharacter5 Page](./image/Editcharacter5.png)
 
-This image is after logging in as a Dungeon Master (DM). Here you can see that the DM has access to all the players characters. You can view character, delete character, create character.
+This image is after logging in as a Dungeon Master (DM). Here you can see that the DM has access to all the players characters. You can view character, delete character, create character. There is a navbar on top of the page and you can navigate between Player and NPCs.
 ![DMcharacterdisplay1 Page](./image/DMcharacterdisplay1.png)
 ![DMcharacterdisplay2 Page](./image/DMcharacterdisplay2.png)
 
@@ -72,7 +72,20 @@ Here you can view and edit the player's character.
 ![DMcharacterview Page](./image/DMcharacterview.png)
 ![DMcharacteredit Page](./image/DMcharacteredit.png)
 
-This image is
+This image is when you click on top of the page there is a navbar for NPCs. Here you can click on view NPC button to view the NPC details or delete NPC button to delete it. You can see your username on the top left and logout on the logout button on the top right. You can also click on the create NPC button that will bring you to the create NPC page.
+![NPCdisplay Page](./image/NPCdisplay.png)
+
+This image is when you click on the create NPC button. Here you can input your NPC's name and features. You can choose the race of the NPC as well as savingthrows.
+![NPCcreate1 Page](./image/NPCcreate1.png)
+
+Here you can select skills for your NPC.
+![NPCcreate2 Page](./image/NPCcreate2.png)
+
+Here you can input your ability scores, maximum and current hit points for you NPC.
+![NPCcreate3 Page](./image/NPCcreate3.png)
+
+Here you can input your armor class (AC) for your NPC. The create NPC will take your input for your NPC and create it, and brings you to the NPC view page. Go back to NPC list will not save your NPC and go back to the NPC view page.
+![NPCcreate4 Page](./image/NPCcreate4.png)
 
 ## Technologies Used
 
