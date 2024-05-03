@@ -18,10 +18,10 @@ This image is the login with a registration link that will bring you to the regi
 This image is the registration page when you clicked on the registrations link. Here you can register by inputing your email, username, password and what role you want to take.
 ![Register Page](./image/Register.png)
 
-This image is the main page of the player before adding any characters when you logged in. Your name will be shown on the top left of the page and you can create a character when you click on the create character button on the top right. You can also logout from your account when you click on the top right of the page.
+This image is the main page of the player before adding any characters when you logged in. Your name will be shown on the top left of the page and you can create a character when you click on the create character button on the top right. You can also logout from your account when you click on the top right of the page and it will bring you to the login page.
 ![Player1 Page](./image/Player1.png)
 
-This image is the main page of the player if you have any character when you logged in. Your name will be shown on the top left of the page and you can create a character when you click on the create character button on the top right. You can also logout from your account when you click on the top right of the page.
+This image is the main page of the player if you have any character when you logged in. Your name will be shown on the top left of the page and you can create a character when you click on the create character button on the top right. You can also logout from your account when you click on the top right of the page and it will bring you to the login page.
 ![Player2 Page](./image/Player2.png)
 
 This image is after clicking on the adding character button. Here you will create your own character that you envision.
