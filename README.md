@@ -40,16 +40,28 @@ Here you will input your ability score for strength, dexterity, consitution, int
 Here you will input your armor class(AC) in numbers and input your inventory. The inventory you will take from your class and backgrounds. On the bottom of the character creation, there are two buttons. Create character will take what you input and create a character for you and will bring you to the character display page in which you will see your own created character. Go back to character will erase all your inputs and brings you to the character display page .
 ![Createcharacter5 Page](./image/Createcharacter5.png)
 
-This image is after clicking on the view character that you made.
+This image is after clicking on the view character that you made. Here you can see your character details that you input in. There are two buttons you can click, go back to character list will bring you to the character display page. The edit button will bring you to the edit character page.
 ![Viewcharacter1 Page](./image/Viewcharacter1.png)
+
+Here you can see you savingthrows, skills and your ability scores. You can also edit your maximum hit point, your current hit points and your temporary hit points and armor class that you can change on the fly.
 ![Viewcharacter2 Page](./image/Viewcharacter2.png)
+
+Here you can see your inventory and edit it whenever.
 ![Viewcharacter3 Page](./image/Viewcharacter3.png)
 
-This image is after clicking on the edit button.
+This image is after clicking on the edit button. Here you can update your inputs to your characters. It is mostly the same as character creation but with the newly added proficiency bonus. There are two buttons, the cancel button will bring you back to the character view without any chanags to your character, while the save will save your changes and display your input in your character.
 ![Editcharacter1 Page](./image/Editcharacter1.png)
+
+Here you can change your backgrounds and selecting more or less savingthrows.
 ![Editcharacter2 Page](./image/Editcharacter2.png)
+
+Here you can select more or less for your skills.
 ![Editcharacter3 Page](./image/Editcharacter3.png)
+
+Here you can change your input for your ability scores and hitpoints.
 ![Editcharacter4 Page](./image/Editcharacter4.png)
+
+Here you can change your input for your temporary hit points and armor class. You can add more or erase your inventory.
 ![Editcharacter5 Page](./image/Editcharacter5.png)
 
 ## Technologies Used
