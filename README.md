@@ -97,9 +97,23 @@ Here you can input your ability scores, maximum and current hit points for you N
 Here you can input your armor class (AC) for your NPC. The create NPC will take your input for your NPC and create it, and brings you to the NPC view page. Go back to NPC list will not save your NPC and go back to the NPC view page.
 ![NPCcreate4 Page](./image/NPCcreate4.png)
 
-This image is when you click on view NPC button.
+This image is when you click on view NPC button. Here you can view your NPC's details.
 ![NPCview1 Page](./image/NPCview1.png)
+
+Here you can edit your NPC's hitpoints and armor class (AC) on the fly.
 ![NPCview2 Page](./image/NPCview2.png)
+
+This image is when you click on the edit button. Here you can edit your NPC's name, features and proficiency bonus. You can add or remove savingthrows. There are two buttons, the cancel button will bring you back to the NPC view without any chanags to your character, while the save will save your changes and display your input in your NPC.
+![NPCedit1 Page](./image/NPCedit1.png)
+
+Here you can add more or remove skills.
+![NPCedit2 Page](./image/NPCedit2.png)
+
+Here you can change your input on your ability scores(AS), your maximum and current hit points.
+![NPCedit3 Page](./image/NPCedit3.png)
+
+Here you can change your armor class (AC)
+![NPCedit4 Page](./image/NPCedit4.png)
 
 ## Technologies Used
 
