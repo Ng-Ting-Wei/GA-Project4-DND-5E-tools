@@ -19,6 +19,7 @@ This image is the registration page when you clicked on the registrations link. 
 ![Register Page](./image/Register.png)
 
 This image is the main page of the player before adding any characters when you logged in.
+![Player Page](./image/Player.png)
 
 This image is the main page of the player if you have any character when you logged in.
 
