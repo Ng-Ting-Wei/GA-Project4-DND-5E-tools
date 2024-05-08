@@ -1,4 +1,4 @@
-# GA-Project4
+# GA-Project4-DND-5E-tools
 
 This app is a game called Dungeons and Dragons 5th Edition, or otherwise called D&D 5E. This app allows you to create your own characters using the basic rules of the game.
 
